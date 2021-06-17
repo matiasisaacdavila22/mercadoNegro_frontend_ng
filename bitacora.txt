@@ -1,0 +1,106 @@
+**cramos las carpteas **
+ng g c public/home/default
+ng g c public/master-page/navbar
+ng g c public/master-page/side-menu
+ng g c public/master-page/hero
+ng g c public/master-page/footer
+
+**creamos la carpeta modules y los modulos security, parameters,store, reports con enrutamiento**
+ ng g m modules/security --routing
+ ng g m  modules/parameters --routing
+ ng g m  modules/store --routing
+ ng g m  modules/reports --routing
+
+ **creamos los componetes de security** login. logout, password-reset, change-password,
+ ng g c modules/security/login
+ ng g c modules/security/logout
+ ng g c modules/security/password-reset
+ ng g c modules/security/change-password
+
+ **creamos los componetes de parameters/category** creation. edition, list, remove,
+ng g c modules/parameters/category/category-creation
+ng g c modules/parameters/category/category-edition
+ng g c modules/parameters/category/category-list
+ng g c modules/parameters/category/category-remove
+
+ **creamos los componetes de parameters/brand** creation. edition, list
+ng g c modules/parameters/brand/brand-creation
+ng g c modules/parameters/brand/brand-edition
+ng g c modules/parameters/brand/brand-list
+
+**definimos las rutas en app-routing.mosule.ts***
+
+const routes: Routes = [
+  {
+    path: 'home',
+    component:DefaultComponent
+  },
+  {
+    path: '',
+    pathMatch: 'full',
+    redirectTo: '/home'
+  },
+  **se agrego a posteriori del enrutamiento a security**
+    {
+    path: '/security',
+    loadChildren: () => import('./modules/security/security.module')
+     .then(m => m.SecurityModule)
+  },
+   /**this must be the last one*/
+  {
+    path:'**',
+    pathMatch: '/home'
+  }
+];
+
+**definimos las routes in security  security-routing.modules.ts**
+const routes: Routes = [
+  {
+    path: 'login',
+    component:LoginComponent
+  },
+  {
+    path: 'logout',
+    component:LogoutComponent
+  },
+  {
+    path: 'reset',
+    component: PasswordResetComponent
+  },
+  {
+    path: 'change-password',
+    component: ChangePasswordComponent
+  }
+];
+
+**definimos routes parameters and brands in parameters-routing.ts **
+const routes: Routes = [
+  {
+    path: 'category-list',
+    component: CategoryListComponent
+  },
+  {
+    path: 'category-creation',
+    component: CategoryCreationComponent
+  },
+  {
+    path: 'category-edition',
+    component: CategoryEditionComponent
+  },
+  {
+    path: 'category-remove',
+    component: CategoryRemoveComponent
+  },
+  {
+    path: 'brand-list',
+    component: BrandCreationComponent
+  },
+  {
+    path: 'brand-creation',
+    component: BrandCreationComponent
+  },
+  {
+    path: 'brand-edition',
+    component: BrandEditionComponent
+  }
+];
