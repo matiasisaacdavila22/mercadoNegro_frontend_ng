@@ -49,7 +49,7 @@ const routes: Routes = [
    /**this must be the last one*/
   {
     path:'**',
-    pathMatch: '/home'
+    redirectTo: '/home'
   }
 ];
 
