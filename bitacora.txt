@@ -46,6 +46,11 @@ const routes: Routes = [
     loadChildren: () => import('./modules/security/security.module')
      .then(m => m.SecurityModule)
   },
+    {
+    path: 'parameters',
+    loadChildren: () => import('./modules/parameters/parameters.module')
+     .then(m => m.ParametersModule)
+  },
    /**this must be the last one*/
   {
     path:'**',
@@ -103,4 +108,17 @@ const routes: Routes = [
     path: 'brand-edition',
     component: BrandEditionComponent
   }
+
+**agregamos html el navbar, side-menu, footer los respectivos arcvos de component**
+
+**luefo de instalar materializa lo llamamos desde elarchivo angular.json**
+
+            "styles": [
+              "src/styles.css",
+              "node_modules/materialize-css/dist/css/materialize.min.css" // aqui
+            ],
+            "scripts": [
+              "node_modules/materialize-css/dist/js/materialize.min.js" // aqui
+            ]
+
 ];
