@@ -7,11 +7,10 @@ export class StoreModel {
     name!: String;
     lastName!: String;
     email!: String;
-    cellphone!: String;
+    phone!: String;
     storeName!: String;
     storeAddress!: String;
     storeEmail!:String;
     storePhone!:String;
     password!:String;
-    user!: UserModel;
-}
+   }

@@ -65,6 +65,7 @@ export class RegisterComponent implements OnInit {
       model.name = this.fgv.firstName.value;
       model.lastName = this.fgv.lastName.value;
       model.email = this.fgv.email.value;
+      model.phone = this.fgv.phone.value;
       model.storeName = this.fgv.storeName.value;
       model.storeAddress = this.fgv.storeAddress.value;
       model.storeEmail = this.fgv.storeEmail.value;
