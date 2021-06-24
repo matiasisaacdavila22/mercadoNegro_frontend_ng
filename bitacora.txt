@@ -119,6 +119,13 @@ const routes: Routes = [
             ],
             "scripts": [
               "node_modules/materialize-css/dist/js/materialize.min.js" // aqui
-            ]
+              "src/assets/scripts/materialize-init.js" // side-menu
+              ]
+
+**llamar el materialize icons desde el archivo index principar**
+
+     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+
 
 ];

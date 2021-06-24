@@ -22,6 +22,11 @@ const routes: Routes = [
     loadChildren: () => import('./modules/parameters/parameters.module')
      .then(m => m.ParametersModule)
   },
+  {
+    path: 'store',
+    loadChildren: () => import('./modules/store/store.module')
+     .then(m => m.StoreModule)
+  },
 
  /**this must be the last one*/
 {
