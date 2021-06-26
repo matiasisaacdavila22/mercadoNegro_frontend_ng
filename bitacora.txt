@@ -126,6 +126,9 @@ const routes: Routes = [
 
      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-
-
 ];
+
+
+/****************************error******************
+"can only be default-imported using the 'allowSyntheticDefaultImports' flag"
+ solution: "compilerOptions": { "allowSyntheticDefaultImports":true, }  // in tsconfig.json
