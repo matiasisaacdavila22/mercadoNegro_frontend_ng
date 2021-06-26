@@ -16,5 +16,5 @@ export class StoreModel {
     userId?: String;
     role?:number;
     token?: String;
-    isLoggend?: Boolean = false;
+    isLoggend: Boolean = false;
    }

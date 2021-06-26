@@ -30,7 +30,7 @@ export class LoginComponent implements OnInit {
   FormBuilder(){
     this.fgValidator = this.fb.group({
       email: ['', [Validators.required,Validators.email, Validators.maxLength(30)]],
-      password: ['',[Validators.required,Validators.minLength(8), Validators.maxLength(30)]],
+      password: ['',[Validators.required,Validators.minLength(8), Validators.maxLength(35)]],
       })
   }
 
@@ -41,8 +41,8 @@ export class LoginComponent implements OnInit {
       let model = this.getLoginData();
       console.log(model);
      this.service.StoreLogin(model).subscribe(
-       storeInfo => {
-         this.service.saveSessionData(storeInfo);
+       data => {
+         this.service.saveSessionData(data);
         showMessage('Welcome to yout account')
         this.router.navigate(['/home'])
       },
