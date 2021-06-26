@@ -1,20 +1,30 @@
 <div id="login-page" class="row">
   <div class="col s12 z-depth-6 card-panel">
-    <form class="login-form">
+    <form [formGroup]="fgValidator" class="login-form">
       <div class="row">
       </div>
       <div class="row">
         <div class="input-field col s12">
           <i class="material-icons prefix">mail_outline</i>
-          <input class="validate" id="email" type="email">
+          <input class="validate" formControlName='email' id="email" type="email">
           <label for="email" data-error="wrong" data-success="right">Email</label>
+          <div class="warning-validator" *ngIf='fgv.email.errors && (fgv.email.dirty || fgv.email.touched)'>
+            <strong *ngIf="fgv.email.errors.required">This field id required</strong>
+            <strong *ngIf="fgv.email.errors.minlength">this field must be at least 6 long</strong>
+            <strong *ngIf="fgv.email.errors.maxlength">this field must be at least 15 long</strong>
+        </div>
         </div>
       </div>
       <div class="row">
         <div class="input-field col s12">
           <i class="material-icons prefix">lock_outline</i>
-          <input id="password" type="password">
+          <input id="password" formControlName='password' type="password">
           <label for="password">Password</label>
+          <div class="warning-validator" *ngIf='fgv.password.errors && (fgv.password.dirty || fgv.password.touched)'>
+            <strong *ngIf="fgv.password.errors.required">This field id required</strong>
+            <strong *ngIf="fgv.password.errors.minlength">this field must be at least 6 long</strong>
+            <strong *ngIf="fgv.password.errors.maxlength">this field must be at least 15 long</strong>
+        </div>
         </div>
       </div>
       <div class="row">
@@ -25,7 +35,9 @@
       </div>
       <div class="row">
         <div class="input-field col s12">
-          <a href="#" class="btn waves-effect waves-light col s12">Login</a>
+          <button (click)='LoginStoreFn()' class="btn waves-effect waves-light col s12" type="submit" name="action">Login
+            <i class="material-icons right">done</i>
+          </button>
         </div>
       </div>
       <div class="row">

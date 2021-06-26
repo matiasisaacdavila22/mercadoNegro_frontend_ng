@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { StoreService } from 'src/app/services/store.service';
 import {StoreModel } from '../../../models/store.model';
-
+import MD5 from 'crypto-js/md5';
 
 declare const showMessage: any;
 
@@ -60,6 +60,7 @@ export class RegisterComponent implements OnInit {
 
     }
   }
+
  getStoreData(): StoreModel{
     let model = new StoreModel();
       model.name = this.fgv.firstName.value;
@@ -70,7 +71,7 @@ export class RegisterComponent implements OnInit {
       model.storeAddress = this.fgv.storeAddress.value;
       model.storeEmail = this.fgv.storeEmail.value;
       model.storePhone = this.fgv.storePhone.value;
-      model.password = this.fgv.password.value;
+      model.password = MD5(this.fgv.password.value).toString();
       return model;
   }
 
