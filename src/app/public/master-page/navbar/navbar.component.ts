@@ -12,7 +12,7 @@ export class NavbarComponent implements OnInit {
 
 
   isLogged: Boolean = false;
-  role: number = 1;
+  role: number = 0;
 
   subscription!: Subscription;
 
