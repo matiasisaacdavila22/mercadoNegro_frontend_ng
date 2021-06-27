@@ -14,7 +14,7 @@ export class StoreModel {
     storePhone?:String;
     password?:String;
     userId?: String;
-    role?:number;
+    role :number = 0;
     token?: String;
     isLoggend: Boolean = false;
    }

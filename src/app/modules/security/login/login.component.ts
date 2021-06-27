@@ -6,7 +6,7 @@ import { SecurityService } from 'src/app/services/security.service';
 import MD5 from 'crypto-js/md5';
 
 declare const showMessage: any;
-
+declare const initSidenav: any;
 
 @Component({
   selector: 'app-login',
@@ -39,7 +39,6 @@ export class LoginComponent implements OnInit {
       showMessage('Invalid form');
     }else{
       let model = this.getLoginData();
-      console.log(model);
      this.service.StoreLogin(model).subscribe(
        data => {
          this.service.saveSessionData(data);

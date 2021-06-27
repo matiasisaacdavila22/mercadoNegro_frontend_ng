@@ -4,3 +4,4 @@ document.addEventListener('DOMContentLoaded', function() {
       //here we can set menu-side parameters
   });
 });
+
