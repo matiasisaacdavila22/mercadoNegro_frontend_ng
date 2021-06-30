@@ -1,5 +1,3 @@
-
-
 export class UserModel{
     id?: String;
     username!: String;
