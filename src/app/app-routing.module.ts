@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AdminAuthenticatedGuard } from './guards/admin-authenticated.guard';
 import { DefaultComponent } from './public/home/default/default.component';
 
 const routes: Routes = [
@@ -20,7 +21,8 @@ const routes: Routes = [
   {
     path: 'parameters',
     loadChildren: () => import('./modules/parameters/parameters.module')
-     .then(m => m.ParametersModule)
+     .then(m => m.ParametersModule),
+     canActivate: [AdminAuthenticatedGuard]
   },
   {
     path: 'store',

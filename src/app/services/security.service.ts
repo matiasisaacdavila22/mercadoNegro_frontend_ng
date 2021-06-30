@@ -69,6 +69,20 @@ getSessionData(){
   return currenSession;
 }
 
+sessionExist():Boolean{
+  let currentSession = this.getSessionData();
+  return (currentSession) ? true: false;
+}
+
+verifyRoleInSession(rolId: any): Boolean {
+  let currentSession = this.getSessionData();
+  if(currentSession){
+    let stringCurrentSession = JSON.parse(currentSession);
+    return (stringCurrentSession.role == rolId);
+  }
+return false;
+}
+
 getToken():String{
    let currentSession = this.getSessionData();
    if(currentSession){
