@@ -10,3 +10,8 @@ function showMessage(message){
       let instance = M.Modal.init(elems, {});
       instance.open();
     };
+function closeModal(modalId){
+  let elems = document.querySelector('#' + modalId);
+  let instance = M.Modal.init(elems, {});
+  instance.close();
+}

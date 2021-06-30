@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { ServiceConfig } from '../config/service-comfig';
+import { PasswordResetModel } from '../models/security/password-reset.models';
 import { StoreModel } from '../models/store.model';
 
 @Injectable({
@@ -44,6 +45,14 @@ export class SecurityService {
       })
   }
 
+  PasswordReset(store: PasswordResetModel): Observable<PasswordResetModel>{
+    return this.http.post<PasswordResetModel>(`${ServiceConfig.BASE_URL}api/user/password-reset`,store,{
+      headers:new HttpHeaders({
+        /*the headers for Example token*/
+      })
+    })
+}
+
   saveSessionData(sessionData: any): Boolean{
     let currenSession = localStorage.getItem('session');
     if(currenSession){
@@ -67,6 +76,20 @@ export class SecurityService {
 getSessionData(){
   let currenSession = localStorage.getItem('session');
   return currenSession;
+}
+
+sessionExist():Boolean{
+  let currentSession = this.getSessionData();
+  return (currentSession) ? true: false;
+}
+
+verifyRoleInSession(rolId: any): Boolean {
+  let currentSession = this.getSessionData();
+  if(currentSession){
+    let stringCurrentSession = JSON.parse(currentSession);
+    return (stringCurrentSession.role == rolId);
+  }
+return false;
 }
 
 getToken():String{

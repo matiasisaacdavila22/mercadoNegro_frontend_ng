@@ -9,6 +9,8 @@ import { CategoryRemoveComponent } from './category/category-remove/category-rem
 import { BrandCreationComponent } from './brand/brand-creation/brand-creation.component';
 import { BrandEditionComponent } from './brand/brand-edition/brand-edition.component';
 import { BrandListComponent } from './brand/brand-list/brand-list.component';
+import {NgxPaginationModule} from 'ngx-pagination';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -23,7 +25,10 @@ import { BrandListComponent } from './brand/brand-list/brand-list.component';
   ],
   imports: [
     CommonModule,
-    ParametersRoutingModule
+    ParametersRoutingModule,
+     NgxPaginationModule,
+     ReactiveFormsModule,
+     FormsModule
   ]
 })
 export class ParametersModule { }

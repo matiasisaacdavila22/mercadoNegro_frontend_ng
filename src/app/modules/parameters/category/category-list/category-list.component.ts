@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+
 import { CategoryModel } from 'src/app/models/parameters/category.model';
 import { CategoryService } from 'src/app/services/parameters/category.service';
 
-
+declare const closeModal: any;
 declare const showMessage: any;
 declare const showRemoveConfirmationWindows: any;
 
@@ -12,13 +14,20 @@ declare const showRemoveConfirmationWindows: any;
   styleUrls: ['./category-list.component.css']
 })
 export class CategoryListComponent implements OnInit {
-
+  page:number = 1;
   recordList!: CategoryModel[];
+  idRemove: String = '';
 
-  constructor(private service: CategoryService) { }
+  constructor(
+    private service: CategoryService,
+    private router: Router
+
+    ) { }
 
   ngOnInit(): void {
+
       this.fillRecords();
+
   }
 
   fillRecords(){
@@ -34,8 +43,23 @@ export class CategoryListComponent implements OnInit {
   }
 
   RemoveConfirmation(id:String){
+    this.idRemove = id;
     showRemoveConfirmationWindows();
   }
 
-
+  RemoveRecord(){
+    closeModal('removeConfirmationModal')
+    if(this.idRemove){
+    this.service.deleteRecord(this.idRemove).subscribe(
+      data => {
+        this.idRemove = '';
+        this.fillRecords();
+        showMessage('Removed Category succesfully')
+       },
+      error => {
+        showMessage("there os an error with backend communication.")
+      }
+    );
+  }
+  }
 }

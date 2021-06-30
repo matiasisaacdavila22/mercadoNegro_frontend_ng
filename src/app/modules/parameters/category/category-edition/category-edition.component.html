@@ -1,1 +1,35 @@
-<p>category-edition works!</p>
+<div class="row">
+  <form class="col s12" [formGroup]="fgValidator">
+    <input type="hidden" formControlName="id"/>
+    <div class="row">
+      <div class="input-field col s6">
+        <i class="material-icons prefix">add</i>
+        <input id="name" formControlName="name" type="text" class="validate">
+        <label for="category" class="active">Categoria</label>
+        <div class="warning-validator" *ngIf="fgv.name.errors && (fgv.name.dirty || fgv.name.touched)">
+          <strong *ngIf='fgv.name.errors.required'>this Campo is required</strong>
+          <strong *ngIf='fgv.name.errors.maxlength'>his field must be at LEAST 50 CARACTERES MAXIMUM of long</strong>
+        </div>
+      </div>
+    </div>
+    <div class="file-field input-field col s6">
+      <div class="btn">
+        <span>File</span>
+        <input type="file">
+      </div>
+      <div class="file-path-wrapper">
+        <input class="file-path validate" type="text" id="photo">
+      </div>
+    </div>
+    <div class="row col s12">
+      <div class="input-field col s6">
+        <button class="btn waves-effect waves-light" type="button" (click)="EditRecordFn()" name="action">Submit
+          <i class="material-icons right">send</i>
+        </button>
+        &nbsp;&nbsp;
+        <a routerLink="/parameters/category-list" class="waves-effect waves-light btn red"><i class="material-icons right">cancel</i>Cancel</a>
+      </div>
+    </div>
+  </form>
+</div>
+
