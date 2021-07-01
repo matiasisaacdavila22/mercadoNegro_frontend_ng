@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { ServiceConfig } from '../config/service-comfig';
+import { ChangePasswordModel } from '../models/security/change-password.model';
 import { PasswordResetModel } from '../models/security/password-reset.models';
 import { StoreModel } from '../models/store.model';
 
@@ -51,6 +52,14 @@ export class SecurityService {
         /*the headers for Example token*/
       })
     })
+}
+
+changePassword(store: ChangePasswordModel): Observable<ChangePasswordModel>{
+  return this.http.post<ChangePasswordModel>(`${ServiceConfig.BASE_URL}api/user/changePassword`,store,{
+    headers:new HttpHeaders({
+      Authorization: `Bearer ${this.getToken()}`
+    })
+  })
 }
 
   saveSessionData(sessionData: any): Boolean{

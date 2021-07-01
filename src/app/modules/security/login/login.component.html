@@ -22,8 +22,6 @@
           <label for="password">Password</label>
           <div class="warning-validator" *ngIf='fgv.password.errors && (fgv.password.dirty || fgv.password.touched)'>
             <strong *ngIf="fgv.password.errors.required">This field id required</strong>
-            <strong *ngIf="fgv.password.errors.minlength">this field must be at least 6 long</strong>
-            <strong *ngIf="fgv.password.errors.maxlength">this field must be at least 15 long</strong>
         </div>
         </div>
       </div>
