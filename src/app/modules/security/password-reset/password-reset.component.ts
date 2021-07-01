@@ -56,7 +56,7 @@ export class PasswordResetComponent implements OnInit {
   getPasswordData(): PasswordResetModel{
     let model = new PasswordResetModel();
       model.email = this.fgv.email.value;
-      model.type = '1';
+      model.type = '2';
       return model;
   }
 
