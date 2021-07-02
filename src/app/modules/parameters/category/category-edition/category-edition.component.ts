@@ -5,6 +5,7 @@ import { CategoryModel } from 'src/app/models/parameters/category.model';
 import { CategoryService } from 'src/app/services/parameters/category.service';
 
 declare const showMessage: any;
+declare const initSelect: any;
 
 @Component({
   selector: 'app-category-edition',
@@ -26,6 +27,7 @@ export class CategoryEditionComponent implements OnInit {
   ngOnInit(): void {
     this.FormBuilder();
     this.getdataOfRecord();
+    initSelect();
   }
   getdataOfRecord() {
     if(this.id){

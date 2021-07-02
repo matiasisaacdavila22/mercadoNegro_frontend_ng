@@ -1,0 +1,56 @@
+<a routerLink="/products/product-creation" class="waves-effect waves-light btn"><i class="material-icons right">add</i>Agregar</a>
+
+<table class="highlight, responsive-table">
+  <thead>
+    <tr>
+      <td>Categoria</td>
+      <td>Marca</td>
+      <td>Modelo</td>
+      <td>Nombre</td>
+      <td>Precio</td>
+      <td>Costo</td>
+      <td>Stock</td>
+      <td>Estado</td>
+      <td>Edit</td>
+      <td>Remove</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let r of recordList | paginate: { itemsPerPage: 5, currentPage: page }">
+      <td>{{r.category.name}}</td>
+      <td>{{r.brand.name}}</td>
+      <td>{{r.model}}</td>
+      <td>{{r.name}}</td>
+      <td>{{r.price}}</td>
+      <td>{{r.cost}}</td>
+      <td>{{r.stock}}</td>
+      <td>
+        <button (click)="StopendConfirmation(r.id)" class="btn green waves-effect waves-light" type="button">
+         <i class="material-icons right">{{icon}}</i>
+
+      </button>
+    </td>
+      <td>
+        <a routerLink="/products/product-edition/{{r.id}}" class="waves-effect waves-light"><i class="material-icons right">edit</i>Edit</a>
+      </td>
+      <td><button (click)="RemoveConfirmation(r.id)" class="btn red waves-effect waves-light" type="button">
+        Borrar<i class="material-icons right">delete</i>
+      </button></td>
+    </tr>
+  </tbody>
+
+</table>
+<pagination-controls (pageChange)="page = $event"></pagination-controls>
+
+<div id="removeConfirmationModal" class="modal">
+  <div class="modal-content">
+    <h4>Remove Confirmation</h4>
+    <p>Are you sure remove this record?</p>
+  </div>
+  <div class="modal-footer">
+    <button (click)="RemoveRecord()" class="btn red waves-effect waves-light" type="button">Confirmar
+      <i class="material-icons right">delete</i></button>
+    <a class="modal-close waves-effect waves-green btn-flat">Close</a>
+  </div>
+</div>
+

@@ -5,7 +5,7 @@ import { BrandModel } from 'src/app/models/parameters/brand.model';
 import { BrandService } from 'src/app/services/parameters/brand.service';
 
 declare const showMessage: any;
-
+declare const initSelect: any;
 @Component({
   selector: 'app-brand-edition',
   templateUrl: './brand-edition.component.html',
