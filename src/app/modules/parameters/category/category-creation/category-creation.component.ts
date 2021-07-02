@@ -5,6 +5,7 @@ import { CategoryModel } from 'src/app/models/parameters/category.model';
 import { CategoryService } from 'src/app/services/parameters/category.service';
 
 declare const showMessage: any;
+declare const initSelect: any;
 
 @Component({
   selector: 'app-category-creation',
@@ -23,6 +24,7 @@ export class CategoryCreationComponent implements OnInit {
 
   ngOnInit(): void {
     this.FormBuilder();
+    initSelect()
   }
 
   FormBuilder(){

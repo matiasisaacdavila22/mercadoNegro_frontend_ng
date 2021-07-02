@@ -1,6 +1,13 @@
-<div class="row">
+<legend>
+  <div class="brand-logo">
+    <h5>New Category</h5>
+  </div>
+</legend>
+<div id="login-page" class="row">
+<div class="col s12  card-panel">
   <form class="col s12" [formGroup]="fgValidator">
-    <div class="input-field col s6">
+    <div class="row">
+    <div class="input-field col s12">
       <select>
         <option value="" disabled selected>Choose your option</option>
         <option value="1">Option 1</option>
@@ -9,8 +16,9 @@
       </select>
       <label>Materialize Select</label>
     </div>
+  </div>
     <div class="row">
-      <div class="input-field col s6">
+      <div class="input-field col s12">
         <i class="material-icons prefix">add</i>
         <input id="name" formControlName="name" type="text" class="validate">
         <label for="icon_create"  class="active">Categoria</label>
@@ -20,17 +28,18 @@
         </div>
       </div>
     </div>
-    <div class="file-field input-field col s6">
+    <div class="file-field input-field col s12">
       <div class="btn">
         <span>File</span>
         <input type="file">
       </div>
       <div class="file-path-wrapper">
+        <i class="material-icons prefix">camera_alt</i>
         <input class="file-path validate" type="text" id="photo">
       </div>
     </div>
     <div class="row col s12">
-      <div class="input-field col s6">
+      <div class="input-field col s12 buttons">
         <button class="btn waves-effect waves-light" type="button" (click)="SaveNewRecordFn()" name="action">Submit
           <i class="material-icons right">send</i>
         </button>

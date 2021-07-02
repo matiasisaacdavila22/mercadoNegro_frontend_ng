@@ -132,3 +132,28 @@ const routes: Routes = [
 /****************************error******************
 "can only be default-imported using the 'allowSyntheticDefaultImports' flag"
  solution: "compilerOptions": { "allowSyntheticDefaultImports":true, }  // in tsconfig.json
+
+
+ *******generar un new modulo products***
+ ng g m modules/modules --routing // routing para generar el archivo de enrutamiento
+ ******generar conpoonente para ese modulo******
+ ng g c modules/products/admin/product-creation
+ ng g c modules/products/admin/product-edition
+ ng g c modules/products/admin/product-list
+
+ ******model of product*****
+ export class ProductModel {
+  id?:String;
+  category!:String;
+  brand!:String;
+  model!:String;
+  name!:String;
+  price!:number;
+  cost!:number;
+  stock!:number;
+  condition!:number;
+}
+
+
+****new service for product***
+ng g s services/products/product
