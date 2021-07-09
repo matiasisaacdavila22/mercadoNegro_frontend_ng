@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { BrandModel } from 'src/app/models/parameters/brand.model';
 import { CategoryModel } from 'src/app/models/parameters/category.model';
+import { BrandService } from 'src/app/services/parameters/brand.service';
 import { CategoryService } from 'src/app/services/parameters/category.service';
 
 declare const showMessage: any;
@@ -15,16 +17,45 @@ declare const initSelect: any;
 export class CategoryCreationComponent implements OnInit {
 
   fgValidator!: FormGroup;
+  categoryList!: CategoryModel[];
+  brandList!: BrandModel[];
 
   constructor(
     private fb: FormBuilder,
     private service: CategoryService,
-    private router:Router
+    private router:Router,
+    private categoryService: CategoryService,
+    private brandService: BrandService
      ) { }
 
   ngOnInit(): void {
     this.FormBuilder();
-    initSelect()
+    this.fillSelectsCategories();
+    this.fillSelectsBrands();
+    initSelect();
+  }
+
+  fillSelectsCategories(){
+    this.categoryService.getAllRecords().subscribe(
+      data=>{
+          this.categoryList = data;
+          console.log(this.categoryList)
+          initSelect();
+      },
+      error=>{
+        console.log('Error loading categories');
+      });
+  }
+  fillSelectsBrands(){
+    this.brandService.getAllRecords().subscribe(
+      data=>{
+          this.brandList = data;
+          console.log(this.brandList)
+          initSelect();
+      },
+      error=>{
+        console.log('Error loading categories');
+      });
   }
 
   FormBuilder(){

@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { BrowserModule } from '@angular/platform-browser'
 
 import { ParametersRoutingModule } from './parameters-routing.module';
 import { CategoryCreationComponent } from './category/category-creation/category-creation.component';
@@ -28,7 +29,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
     ParametersRoutingModule,
      NgxPaginationModule,
      ReactiveFormsModule,
-     FormsModule
+     FormsModule,
   ]
 })
 export class ParametersModule { }

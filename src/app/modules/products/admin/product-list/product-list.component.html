@@ -10,7 +10,6 @@
       <td>Precio</td>
       <td>Costo</td>
       <td>Stock</td>
-      <td>Estado</td>
       <td>Edit</td>
       <td>Remove</td>
     </tr>
@@ -24,17 +23,9 @@
       <td>{{r.price}}</td>
       <td>{{r.cost}}</td>
       <td>{{r.stock}}</td>
-      <td>
-        <button (click)="StopendConfirmation(r.id)" class="btn green waves-effect waves-light" type="button">
-         <i class="material-icons right">{{icon}}</i>
-
-      </button>
-    </td>
-      <td>
-        <a routerLink="/products/product-edition/{{r.id}}" class="waves-effect waves-light"><i class="material-icons right">edit</i>Edit</a>
-      </td>
-      <td><button (click)="RemoveConfirmation(r.id)" class="btn red waves-effect waves-light" type="button">
-        Borrar<i class="material-icons right">delete</i>
+      <td><a routerLink="/products/product-edition/{{r.id}}" routerLinkActive="router-link-active" class="waves-effect waves-light btn"><i class="material-icons right">edit</i>Edit</a></td>
+      <td><button (click)="RemoveConfirmation(r.id)" class="btn red waves-effect waves-light" type="button">Borrar
+        <i class="material-icons right">delete</i>
       </button></td>
     </tr>
   </tbody>

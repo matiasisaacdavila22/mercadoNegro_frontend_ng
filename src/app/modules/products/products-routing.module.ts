@@ -19,7 +19,7 @@ const routes: Routes = [
   {
     path: 'product-edition/:id',
     component: ProductEditionComponent,
-    canActivate: [ManagerAuthenticatedGuard]
+    //canActivate: [ManagerAuthenticatedGuard]
   }
 ];
 
