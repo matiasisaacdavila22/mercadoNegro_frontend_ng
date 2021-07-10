@@ -19,6 +19,7 @@ declare const initSelect:any;
 export class ProductCreationComponent implements OnInit {
 
   fgValidator!: FormGroup;
+  categoryselect!:CategoryModel;
   categoryList!: CategoryModel[];
   brandList!: BrandModel[];
 
@@ -31,42 +32,45 @@ export class ProductCreationComponent implements OnInit {
      ) { }
 
   ngOnInit(): void {
-    this.fillSelects();
     this.FormBuilder();
+    this.fillSelectsCategories();
+    this.fillSelectsBrands();
+
 
   }
   /**
    * fill all select in form
    */
 
-  fillSelects(){
+  fillSelectsBrands(){
     this.brandService.getAllRecords().subscribe(
     data=>{
         this.brandList = data;
         console.log(this.brandList)
         initSelect();
-
     },
     error=>{
       console.log('Error loading brands');
     });
-    this.categoryService.getAllRecords().subscribe(
-      data=>{
-          this.categoryList = data;
-          console.log(this.brandList)
-         initSelect();
+  }
 
+  fillSelectsCategories(){
+    this.categoryService.getAllRecords().subscribe(
+      data => {
+          this.categoryList = data;
+          console.log(this.categoryList)
+          initSelect();
       },
-      error=>{
+      error => {
         console.log('Error loading categories');
       });
   }
 
   FormBuilder(){
     this.fgValidator = this.fb.group({
-      name: ['',[Validators.required,Validators.minLength(3), Validators.maxLength(30)]],
+      name: ['',[Validators.required,Validators.minLength(3), Validators.maxLength(100)]],
       description: ['',[Validators.required]],
-     // categoryId: ['',[Validators.required]],
+      categoryId: ['',[Validators.required]],
       brandId: ['',[Validators.required]],
       model: ['',[Validators.minLength(3), Validators.maxLength(30)]],
       price: ['',[Validators.required ]],
@@ -97,7 +101,7 @@ export class ProductCreationComponent implements OnInit {
 
  getStoreData(): ProductModel{
     let model = new ProductModel();
-     model.categoryId='1';// this.fgv.categoryId.value;
+     model.categoryId= this.fgv.categoryId.value;
      model.brandId = this.fgv.brandId.value;
      model.name = this.fgv.name.value;
      model.model= this.fgv.model.value;

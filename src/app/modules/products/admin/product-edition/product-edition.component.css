@@ -1,0 +1,21 @@
+
+#login-page {
+  width: 800px;
+  margin-left: 20px;
+}
+
+.buttons{
+  display: flex;
+justify-content: space-around;
+}
+
+.warning-validator strong{
+  color: red;
+}
+
+.brand-logo{
+  font-size: 2rem;
+  font-weight: bold;
+  font-family: 'Pacifico', cursive;
+  color: #333; /*var(--dark);*/
+}
