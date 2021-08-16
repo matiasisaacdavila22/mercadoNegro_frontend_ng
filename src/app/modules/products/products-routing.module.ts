@@ -5,6 +5,7 @@ import { ManagerAuthenticatedGuard } from 'src/app/guards/manager-authenticated.
 import { ProductCreationComponent } from './admin/product-creation/product-creation.component';
 import { ProductEditionComponent } from './admin/product-edition/product-edition.component';
 import { ProductListComponent } from './admin/product-list/product-list.component';
+import { ProductImagesComponent } from './product-images/product-images.component';
 
 const routes: Routes = [
   {
@@ -19,6 +20,11 @@ const routes: Routes = [
   {
     path: 'product-edition/:id',
     component: ProductEditionComponent,
+    //canActivate: [ManagerAuthenticatedGuard]
+  },
+  {
+    path: 'product-images/:id',
+    component: ProductImagesComponent,
     //canActivate: [ManagerAuthenticatedGuard]
   }
 ];

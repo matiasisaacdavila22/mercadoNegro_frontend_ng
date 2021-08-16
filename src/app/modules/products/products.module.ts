@@ -7,12 +7,14 @@ import { ProductEditionComponent } from './admin/product-edition/product-edition
 import { ProductListComponent } from './admin/product-list/product-list.component';
 import {NgxPaginationModule} from 'ngx-pagination';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { ProductImagesComponent } from './product-images/product-images.component';
 
 @NgModule({
   declarations: [
     ProductCreationComponent,
     ProductEditionComponent,
-    ProductListComponent
+    ProductListComponent,
+    ProductImagesComponent
   ],
   imports: [
     CommonModule,

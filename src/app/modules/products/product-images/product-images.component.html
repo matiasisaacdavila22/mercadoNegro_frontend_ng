@@ -1,0 +1,61 @@
+<legend>
+  <div class="brand-logo">
+    <h5>Product Images</h5>
+  </div>
+</legend>
+<div class="row">
+<form [formGroup]="fgValidator">
+  <div class="row">
+    <div class="col s6 m6">
+      <div class="file-field input-field">
+        <div class="btn">
+          <span>Image</span>
+          <input type="file" (change)="onFileSelect($event)">
+        </div>
+        <div class="file-path-wrapper">
+          <input class="file-path validate" type="text">
+        </div>
+      </div>
+      <input formControlName="name" type="hidden">
+    </div>
+    <div class="input-field col s3">
+      <input formControlName="orden" id="orden" placeholder="Orden" type="number" class="validate">
+      <label for="orden" class="active">Orden</label>
+    </div>
+    <div class="input-field col s3">
+      <button class="btn waves-effect waves-light" (click)="UploadImageFn()" type="button" name="action">Upload
+        <i class="material-icons right">send</i>
+      </button>
+    </div>
+  </div>
+</form>
+</div>
+<div class="row">
+  <div *ngFor="let i of imagesList" class="col s4 m6">
+    <div class="card">
+      <div class="card-image">
+        <img src="http://localhost:3000/images/products/{{i.name}}" class="productImage">
+        <span class="card-title" class="orden">Orden :{{i.orden}}</span>
+      </div>
+      <div class="card-content">
+      </div>
+      <div class="card-action">
+        <button class="btn waves-effect waves-light" (click)="RemoveConfirmation(i.id)" type="button" name="action">Remove
+          <i class="material-icons right">delete</i>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="removeConfirmationModal" class="modal">
+  <div class="modal-content">
+    <h4>Remove Confirmation</h4>
+    <p>Are you sure remove this record?</p>
+  </div>
+  <div class="modal-footer">
+    <button (click)="RemoveRecord()" class="btn red waves-effect waves-light" type="button">Confirmar
+      <i class="material-icons right">delete</i></button>
+    <a class="modal-close waves-effect waves-green btn-flat">Close</a>
+  </div>
+</div>
