@@ -43,8 +43,8 @@ export class RegisterComponent implements OnInit {
   }
 
  StoreRegisterFn(){
-    if(this.fgValidator.invalid || this.fgv.password != this.fgv.password2){
-      showMessage('Invalid form');
+    if(this.fgValidator.invalid || this.fgv.password.value != this.fgv.password2.value){
+        showMessage('Invalid form');
     }else{
       let model = this.getStoreData();
       console.log(model);
@@ -54,7 +54,8 @@ export class RegisterComponent implements OnInit {
         this.router.navigate(['/security/login'])
       },
        error => {
-         showMessage('error registering.:')
+         console.log(error.error.errors[0].msg)
+         showMessage(`error :${error.error.errors[0].msg}`)
        }
      );
 
