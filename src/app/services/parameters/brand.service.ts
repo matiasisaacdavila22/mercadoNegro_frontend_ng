@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ServiceConfig } from 'src/app/config/service-comfig';
 import { BrandModel } from 'src/app/models/parameters/brand.model';
+import { UploadImageModel } from 'src/app/models/products/upload-image.model';
 import { SecurityService } from '../security.service';
 
 @Injectable({
@@ -32,8 +33,8 @@ export class BrandService {
     });
 }
 
-  saveNewRecord(record:BrandModel):Observable<BrandModel>{
-    return this.http.post<BrandModel>(`${ServiceConfig.BASE_URL}${this.entity}`, record,{
+  saveNewRecord(formData:FormData):Observable<UploadImageModel>{
+    return this.http.post<UploadImageModel>(`${ServiceConfig.BASE_URL}${this.entity}`, formData,{
       headers: new HttpHeaders({
           Authorization: `Bearer ${this.token}`
       })

@@ -20,13 +20,14 @@
     <div class="file-field input-field col s12">
       <div class="btn">
         <span>File</span>
-        <input type="file" >
+        <input type="file" (change)="onFileSelect($event)">
       </div>
       <div class="file-path-wrapper">
         <i class="material-icons prefix">camera_alt</i>
-        <input class="file-path validate" type="text" formControlName="photo" id="photo">
+        <input class="file-path validate" type="text">
       </div>
     </div>
+    <input formControlName="photo" type="text">
     <div class="row col s12">
       <div class="input-field col s12 buttons">
         <button class="btn waves-effect waves-light" type="button" (click)="SaveNewRecordFn()" name="action">Submit

@@ -15,6 +15,7 @@ export class BrandEditionComponent implements OnInit {
 
   fgValidator!: FormGroup;
   id!:String;
+  photo: String = '';
 
   constructor(
     private fb: FormBuilder,
@@ -33,7 +34,7 @@ export class BrandEditionComponent implements OnInit {
         data => {
             this.fgv.id.setValue(data.id);
             this.fgv.name.setValue(data.name);
-            this.fgv.photo.setValue(data.photo);
+            this.photo = data.photo;
         },
         error => {
           showMessage('register brand not found')

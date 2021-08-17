@@ -28,28 +28,36 @@ export class BrandCreationComponent implements OnInit {
   FormBuilder(){
     this.fgValidator = this.fb.group({
       name: ['',[Validators.required,Validators.minLength(3), Validators.maxLength(30)]],
-      photo: ['',[Validators.maxLength(50)]],
+      photo: ['',[Validators.required]],
     })
   }
 
- SaveNewRecordFn(){
+  SaveNewRecordFn(){
     if(this.fgValidator.invalid){
-      showMessage('Invalid form');
+      showMessage('Invalid Form');
     }else{
-      let model = this.getStoreData();
-      console.log(model);
-     this.service.saveNewRecord(model).subscribe(
-       data => {
-        showMessage('register brand succesfully')
-        this.router.navigate(['/parameters/brand-list'])
-      },
-       error => {
-         showMessage('error saving.:')
-       }
-     );
-
-    }
+    const formData = new FormData();
+    formData.append('name', this.fgv.name.value);
+    formData.append('file', this.fgv.photo.value);
+    console.log(formData)
+    this.service.saveNewRecord(formData).subscribe(
+      data => {
+          this.fgv.photo.setValue(data.filename);
+          showMessage('The image was upload successfuly');
+        },
+      error => {
+        showMessage('Error uploadImage');
+      }
+    );
   }
+}
+
+onFileSelect(event:any){
+  if(event.target.files.length > 0){
+    const file = event.target.files[0];
+    this.fgv.photo.setValue(file);
+  }
+}
 
  getStoreData(): BrandModel{
     let model = new BrandModel();

@@ -28,3 +28,8 @@
   font-family: 'Pacifico', cursive;
   color: #333; /*var(--dark);*/
 }
+
+.brandImage{
+  width:80%;
+  height:300px ;
+}

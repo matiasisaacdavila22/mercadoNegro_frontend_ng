@@ -54,7 +54,8 @@ export class RegisterComponent implements OnInit {
         this.router.navigate(['/security/login'])
       },
        error => {
-         showMessage('error registering.:')
+         console.log(error.error.errors[0].msg)
+         showMessage(`error :${error.error.errors[0].msg}`)
        }
      );
 
