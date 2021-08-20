@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { ServiceConfig } from 'src/app/config/service-comfig';
 import { CategoryModel } from 'src/app/models/parameters/category.model';
 import { SecurityService } from '../security.service';
+import { UploadImageModel } from 'src/app/models/products/upload-image.model';
 
 @Injectable({
   providedIn: 'root'
@@ -32,21 +33,22 @@ export class CategoryService {
     });
 }
 
-  saveNewRecord(record:CategoryModel):Observable<CategoryModel>{
-    return this.http.post<CategoryModel>(`${ServiceConfig.BASE_URL}${this.entity}`, record,{
-      headers: new HttpHeaders({
-          Authorization: `Bearer ${this.token}`
-      })
-    });
-  }
+saveNewRecord(formData:FormData):Observable<UploadImageModel>{
+  return this.http.post<UploadImageModel>(`${ServiceConfig.BASE_URL}${this.entity}`, formData,{
+    headers: new HttpHeaders({
+        Authorization: `Bearer ${this.token}`
+    })
+  });
+}
 
-  editRecord(record:CategoryModel):Observable<CategoryModel>{
-    return this.http.put<CategoryModel>(`${ServiceConfig.BASE_URL}${this.entity}`, record,{
-      headers: new HttpHeaders({
-          Authorization: `Bearer ${this.token}`
-      })
-    });
-  }
+
+editRecord(formData:FormData):Observable<UploadImageModel>{
+  return this.http.put<UploadImageModel>(`${ServiceConfig.BASE_URL}${this.entity}`, formData,{
+    headers: new HttpHeaders({
+        Authorization: `Bearer ${this.token}`
+    })
+  });
+}
 
   deleteRecord(recordId:String):Observable<any>{
     console.log('remove category')

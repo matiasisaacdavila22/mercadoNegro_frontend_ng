@@ -41,8 +41,8 @@ export class BrandService {
     });
   }
 
-  editRecord(record:BrandModel):Observable<BrandModel>{
-    return this.http.put<BrandModel>(`${ServiceConfig.BASE_URL}${this.entity}`, record,{
+  editRecord(formData:FormData):Observable<UploadImageModel>{
+    return this.http.put<UploadImageModel>(`${ServiceConfig.BASE_URL}${this.entity}`, formData,{
       headers: new HttpHeaders({
           Authorization: `Bearer ${this.token}`
       })

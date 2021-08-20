@@ -1,13 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { BrandModel } from 'src/app/models/parameters/brand.model';
 import { CategoryModel } from 'src/app/models/parameters/category.model';
-import { BrandService } from 'src/app/services/parameters/brand.service';
 import { CategoryService } from 'src/app/services/parameters/category.service';
 
 declare const showMessage: any;
-declare const initSelect: any;
 
 @Component({
   selector: 'app-category-creation',
@@ -17,51 +14,22 @@ declare const initSelect: any;
 export class CategoryCreationComponent implements OnInit {
 
   fgValidator!: FormGroup;
-  categoryList!: CategoryModel[];
-  brandList!: BrandModel[];
+
 
   constructor(
     private fb: FormBuilder,
     private service: CategoryService,
     private router:Router,
-    private categoryService: CategoryService,
-    private brandService: BrandService
-     ) { }
+      ) { }
 
   ngOnInit(): void {
     this.FormBuilder();
-    this.fillSelectsCategories();
-    this.fillSelectsBrands();
-    initSelect();
-  }
-
-  fillSelectsCategories(){
-    this.categoryService.getAllRecords().subscribe(
-      data=>{
-          this.categoryList = data;
-          console.log(this.categoryList)
-          initSelect();
-      },
-      error=>{
-        console.log('Error loading categories');
-      });
-  }
-  fillSelectsBrands(){
-    this.brandService.getAllRecords().subscribe(
-      data=>{
-          this.brandList = data;
-          console.log(this.brandList)
-          initSelect();
-      },
-      error=>{
-        console.log('Error loading categories');
-      });
   }
 
   FormBuilder(){
     this.fgValidator = this.fb.group({
-      name: ['',[Validators.required,Validators.minLength(3), Validators.maxLength(30)]],
-      photo: ['',[Validators.maxLength(50)]],
+      name: ['',[Validators.required,Validators.minLength(2), Validators.maxLength(30)]],
+      photo: ['',[Validators.maxLength(80)]]
     })
   }
 
@@ -69,18 +37,27 @@ export class CategoryCreationComponent implements OnInit {
     if(this.fgValidator.invalid){
       showMessage('Invalid form');
     }else{
-      let model = this.getStoreData();
-      console.log(model);
-     this.service.saveNewRecord(model).subscribe(
+      const formData = new FormData();
+      formData.append('name', this.fgv.name.value);
+      formData.append('file', this.fgv.photo.value);
+      this.service.saveNewRecord(formData).subscribe(
        data => {
         showMessage('register Category succesfully')
         this.router.navigate(['/parameters/category-list'])
       },
        error => {
-         showMessage('error saving.:')
+        console.log(error.error.errors[0].msg)
+        showMessage(`error :${error.error.errors[0].msg}`)
        }
      );
 
+    }
+  }
+
+  onFileSelect(event:any){
+    if(event.target.files.length > 0){
+      const file = event.target.files[0];
+      this.fgv.photo.setValue(file);
     }
   }
 

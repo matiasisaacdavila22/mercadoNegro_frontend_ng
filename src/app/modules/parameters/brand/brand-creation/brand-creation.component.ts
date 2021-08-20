@@ -27,9 +27,9 @@ export class BrandCreationComponent implements OnInit {
 
   FormBuilder(){
     this.fgValidator = this.fb.group({
-      name: ['',[Validators.required,Validators.minLength(3), Validators.maxLength(30)]],
-      photo: ['',[Validators.required]],
-    })
+      name: ['',[Validators.required,Validators.minLength(2), Validators.maxLength(80)]],
+      photo: ['',[Validators.maxLength(80)]]
+      })
   }
 
   SaveNewRecordFn(){
@@ -39,14 +39,15 @@ export class BrandCreationComponent implements OnInit {
     const formData = new FormData();
     formData.append('name', this.fgv.name.value);
     formData.append('file', this.fgv.photo.value);
-    console.log(formData)
     this.service.saveNewRecord(formData).subscribe(
       data => {
           this.fgv.photo.setValue(data.filename);
           showMessage('The image was upload successfuly');
+          this.router.navigate(['/parameters/brand-list'])
         },
       error => {
-        showMessage('Error uploadImage');
+        console.log(error.error.errors[0].msg)
+        showMessage(`error :${error.error.errors[0].msg}`)
       }
     );
   }

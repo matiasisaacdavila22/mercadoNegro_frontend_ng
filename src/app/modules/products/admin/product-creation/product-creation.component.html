@@ -14,6 +14,9 @@
       <select class="browser-default" formControlName="categoryId">
         <option *ngFor="let c of categoryList" value="{{c.id}}">{{c.name}}</option>
       </select>
+      <div class="warning-validator" *ngIf="fgv.categoryId.errors && (fgv.categoryId.dirty || fgv.categoryId.touched)">
+        <strong *ngIf='fgv.categoryId.errors.required'>this Campo is required</strong>
+      </div>
 
     </div>
     <label >Marca</label>
@@ -21,7 +24,9 @@
       <select class="browser-default" formControlName="brandId">
         <option *ngFor="let o of brandList" value="{{o.id}}">{{o.name}}</option>
       </select>
-
+      <div class="warning-validator" *ngIf="fgv.brandId.errors && (fgv.brandId.dirty || fgv.brandId.touched)">
+        <strong *ngIf='fgv.brandId.errors.required'>this Campo is required</strong>
+      </div>
     </div>
   </div>
 

@@ -7,19 +7,13 @@
 <div class="col s12  card-panel">
   <form class="col s12" [formGroup]="fgValidator">
     <div class="row">
-      <div class="input-field col s6">
-        <select class="brouser-default">
-          <option value="" disabled selected>categoria Padre</option>
-          <option *ngFor="let i of categoryList" value="{{i.id}}">{{i.name}}</option>
-        </select>
-        <label >category</label>
-       </div>
       <div class="input-field col s12">
         <i class="material-icons prefix">add</i>
         <input id="name" formControlName="name" type="text" class="validate">
         <label for="icon_create"  class="active">Categoria</label>
         <div class="warning-validator" *ngIf="fgv.name.errors && (fgv.name.dirty || fgv.name.touched)">
           <strong *ngIf='fgv.name.errors.required'>this Campo is required</strong>
+          <strong *ngIf='fgv.name.errors.minlength'>his field must be at LEAST 2 CARACTERES MINIMUN of long</strong>
           <strong *ngIf='fgv.name.errors.maxlength'>his field must be at LEAST 50 CARACTERES MAXIMUM of long</strong>
         </div>
       </div>
@@ -27,13 +21,14 @@
     <div class="file-field input-field col s12">
       <div class="btn">
         <span>File</span>
-        <input type="file">
+        <input type="file" (change)="onFileSelect($event)">
       </div>
       <div class="file-path-wrapper">
         <i class="material-icons prefix">camera_alt</i>
         <input class="file-path validate" type="text" id="photo">
       </div>
     </div>
+    <input formControlName="photo" type="text">
     <div class="row col s12">
       <div class="input-field col s12 buttons">
         <button class="btn waves-effect waves-light" type="button" (click)="SaveNewRecordFn()" name="action">Submit

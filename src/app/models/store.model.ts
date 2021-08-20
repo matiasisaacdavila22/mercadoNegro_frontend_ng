@@ -17,4 +17,5 @@ export class StoreModel {
     role :number = 0;
     token?: String;
     isLoggend: Boolean = false;
+    photo?:String;
    }

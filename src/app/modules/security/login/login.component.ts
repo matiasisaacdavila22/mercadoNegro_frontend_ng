@@ -44,7 +44,7 @@ export class LoginComponent implements OnInit {
        data => {
          this.service.saveSessionData(data);
         showMessage('Welcome to yout account')
-        this.router.navigate(['/home'])
+        this.router.navigate(['/products/product-list'])
       },
        error => {
          showMessage('error identifying:')

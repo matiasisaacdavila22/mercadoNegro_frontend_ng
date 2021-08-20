@@ -6,7 +6,6 @@
 <div class="row col s12">
   <div class="col s6" >
 <div id="login-page" class="row">
-
   <div class="col s12  card-panel">
   <form class="col s12" [formGroup]="fgValidator">
     <input type="hidden" formControlName="id"/>
@@ -17,26 +16,30 @@
         <label for="brand" class="active">Marca</label>
         <div class="warning-validator" *ngIf="fgv.name.errors && (fgv.name.dirty || fgv.name.touched)">
           <strong *ngIf='fgv.name.errors.required'>this Campo is required</strong>
+          <strong *ngIf='fgv.name.errors.minlength'>his field must be at LEAST 2 CARACTERES MINIMUN of long</strong>
           <strong *ngIf='fgv.name.errors.maxlength'>his field must be at LEAST 50 CARACTERES MAXIMUM of long</strong>
         </div>
       </div>
     </div>
-    <div class="file-field input-field col s8">
+    <div class="file-field input-field col s12">
       <div class="btn">
         <span>File</span>
-        <input type="file">
+        <input type="file" (change)="onFileSelect($event)">
       </div>
       <div class="file-path-wrapper">
-        <input class="file-path validate" type="text" id="photo">
+        <i class="material-icons prefix">camera_alt</i>
+        <input class="file-path validate" type="text">
+        <input formControlName="oldPhoto" type="text" value="{{oldPhoto}}">
       </div>
     </div>
+    <input formControlName="photo" type="text">
     <div class="row col s6">
       <div class="input-field col s12 buttons">
         <button class="btn waves-effect waves-light" type="button" (click)="EditRecordFn()" name="action">Submit
           <i class="material-icons right">send</i>
         </button>
         &nbsp;&nbsp;
-        <a routerLink="/parameters/brand-list" class="waves-effect waves-light btn red"><i class="material-icons right">cancel</i>Cancel</a>
+        <a routerLink="/parameters/brand-list" class="waves-effect waves-light btn red"><i class="material-icons right">cancel</i>Salir</a>
       </div>
     </div>
   </form>

@@ -5,7 +5,6 @@ import { CategoryModel } from 'src/app/models/parameters/category.model';
 import { CategoryService } from 'src/app/services/parameters/category.service';
 
 declare const showMessage: any;
-declare const initSelect: any;
 
 @Component({
   selector: 'app-category-edition',
@@ -16,6 +15,8 @@ export class CategoryEditionComponent implements OnInit {
 
   fgValidator!: FormGroup;
   id!:String;
+  photo: String = '';
+  oldPhoto: String = '';
 
   constructor(
     private fb: FormBuilder,
@@ -27,7 +28,6 @@ export class CategoryEditionComponent implements OnInit {
   ngOnInit(): void {
     this.FormBuilder();
     this.getdataOfRecord();
-    initSelect();
   }
   getdataOfRecord() {
     if(this.id){
@@ -35,10 +35,11 @@ export class CategoryEditionComponent implements OnInit {
         data => {
             this.fgv.id.setValue(data.id);
             this.fgv.name.setValue(data.name);
-            this.fgv.photo.setValue(data.photo);
+            this.photo = data.photo;
+            this.fgv.oldPhoto.setValue(data.photo);
         },
         error => {
-          showMessage('register Category not found')
+          showMessage('register category not found')
           this.router.navigate(["/parameters/category-list"]);
         }
       );
@@ -50,20 +51,26 @@ export class CategoryEditionComponent implements OnInit {
   FormBuilder(){
     this.fgValidator = this.fb.group({
       id: ['',[Validators.required]],
-      name: ['',[Validators.required,Validators.minLength(3), Validators.maxLength(30)]],
+      name: ['',[Validators.required,Validators.minLength(2), Validators.maxLength(80)]],
       photo: ['',[Validators.maxLength(50)]],
+      oldPhoto: ['',[Validators.maxLength(50)]]
     })
   }
 
  EditRecordFn(){
-    if(this.fgValidator.invalid){
-      showMessage('Invalid form');
-    }else{
-      let model = this.getStoreData();
-     this.service.editRecord(model).subscribe(
+  if(this.fgValidator.invalid){
+    showMessage('Invalid Form');
+  }else{
+  const formData = new FormData();
+  formData.append('id', this.fgv.id.value);
+  formData.append('name', this.fgv.name.value);
+  formData.append('file', this.fgv.photo.value);
+  formData.append('oldPhoto', this.fgv.oldPhoto.value);
+     this.service.editRecord(formData).subscribe(
        data => {
-        showMessage('Update Category succesfully')
-        this.router.navigate(['/parameters/category-list'])
+        showMessage('Update category succesfully')
+        this.getdataOfRecord();
+       // this.router.navigate(['/parameters/brand-list'])
       },
        error => {
          showMessage('error saving.:')
@@ -73,11 +80,20 @@ export class CategoryEditionComponent implements OnInit {
     }
   }
 
+  onFileSelect(event:any){
+    if(event.target.files.length > 0){
+      const file = event.target.files[0];
+      this.fgv.photo.setValue(file);
+    }
+
+  }
+
  getStoreData(): CategoryModel{
     let model = new CategoryModel();
       model.id = this.fgv.id.value;
       model.name = this.fgv.name.value;
       model.photo = this.fgv.photo.value;
+      model.oldPhoto = this.fgv.oldPhoto.value;
       return model;
   }
 

@@ -11,8 +11,8 @@
   </li>
     <li><div class="divider"></div></li>
     <li><a *ngIf="isLogged && role > 1" class="subheader">Parameters</a></li>
-    <li><a *ngIf="isLogged && role > 1" class="waves-effect" href="/products/product-list">Products</a></li>
-    <li><a *ngIf="isLogged && role > 1" class="waves-effect" href="/parameters/category-list">Category</a></li>
-    <li><a *ngIf="isLogged && role > 1" class="waves-effect" href="/parameters/brand-list">Brand</a></li>
+    <li><a *ngIf="isLogged && role > 1" class="waves-effect" routerLink="/products/product-list">Products</a></li>
+    <li><a *ngIf="isLogged && role > 1" class="waves-effect" routerLink="/parameters/category-list">Category</a></li>
+    <li><a *ngIf="isLogged && role > 1" class="waves-effect" routerLink="/parameters/brand-list">Brand</a></li>
   </ul>
   <a *ngIf="isLogged" href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>

@@ -13,6 +13,7 @@
         <label for="icon_create"  class="active">Marca</label>
         <div class="warning-validator" *ngIf="fgv.name.errors && (fgv.name.dirty || fgv.name.touched)">
           <strong *ngIf='fgv.name.errors.required'>this Campo is required</strong>
+          <strong *ngIf='fgv.name.errors.minlength'>his field must be at LEAST 2 CARACTERES MINIMUN of long</strong>
           <strong *ngIf='fgv.name.errors.maxlength'>his field must be at LEAST 50 CARACTERES MAXIMUM of long</strong>
         </div>
       </div>

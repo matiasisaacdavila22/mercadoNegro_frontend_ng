@@ -12,6 +12,8 @@ export class StoreService {
 
   entity = 'api/user/signup';
 
+  entityStore = 'api/store';
+
   constructor(
     private http: HttpClient
   ) { }
@@ -23,4 +25,21 @@ export class StoreService {
         })
       })
   }
+
+  getAllRecords():Observable<StoreModel[]>{
+    return this.http.get<StoreModel[]>(`${ServiceConfig.BASE_URL}${this.entityStore}`,{
+      headers: new HttpHeaders({
+        //  Authorization: `Bearer ${this.token}`
+      })
+    });
+}
+
+getRecordById(id:String):Observable<StoreModel>{
+  return this.http.get<StoreModel>(`${ServiceConfig.BASE_URL}${this.entityStore}/${id}`,{
+    headers: new HttpHeaders({
+      //  Authorization: `Bearer ${this.token}`
+    })
+  });
+}
+
 }

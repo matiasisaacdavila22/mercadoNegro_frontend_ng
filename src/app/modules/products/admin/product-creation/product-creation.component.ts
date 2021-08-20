@@ -72,16 +72,17 @@ export class ProductCreationComponent implements OnInit {
       description: ['',[Validators.required]],
       categoryId: ['',[Validators.required]],
       brandId: ['',[Validators.required]],
-      model: ['',[Validators.minLength(3), Validators.maxLength(30)]],
+      model: ['',[Validators.required,Validators.minLength(3), Validators.maxLength(100)]],
       price: ['',[Validators.required ]],
       cost: ['',[Validators.required]],
       stock: ['',[Validators.required]],
-      photo: ['',[Validators.maxLength(50)]],
+      photo: ['',[Validators.maxLength(80)]],
     })
   }
 
  SaveNewRecordFn(){
     if(this.fgValidator.invalid){
+      console.log(this.fgv.name.errors)
       showMessage('Invalid form');
     }else{
       let model = this.getStoreData();
