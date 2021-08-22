@@ -1,28 +1,2 @@
-<div *ngIf="!isLogged">
+<app-baner></app-baner>
 
-<div class="row">
-  <div *ngFor="let i of storeList" class="col s4 m6">
-
-    <div class="card">
-      <h4>{{i.name}}89</h4>
-      <div class="card-image">
-        <img src="http://localhost:3000/images/store/{{i.photo}}" class="productImage">
-        <span class="card-title" class="orden">Telefono :{{i.phone}}</span>
-      </div>
-      <div class="card-content">
-        <span class="card-title" class="orden">Email :{{i.email}}</span>
-      </div>
-      <div class="card-action">
-        <button class="btn waves-effect waves-light" (click)="selectedStore(i.id)" type="button" name="action">Entrar
-          <i class="material-icons right">send</i>
-        </button>
-      </div>
-    </div>
-  </div>
-</div>
-</div>
-
-<div *ngIf="isLogged">
-  Mostrando contenido
-  <h2>estas logueado wili</h2>
-</div>

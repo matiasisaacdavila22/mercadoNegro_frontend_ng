@@ -5,12 +5,14 @@ import { StoreRoutingModule } from './store-routing.module';
 import { RegisterComponent } from './register/register.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { StoreDetailComponent } from './store-detail/store-detail.component';
+import { StoreListComponent } from './store-list/store-list.component';
 
 
 @NgModule({
   declarations: [
     RegisterComponent,
-    StoreDetailComponent
+    StoreDetailComponent,
+    StoreListComponent
   ],
   imports: [
     CommonModule,

@@ -6,7 +6,7 @@
   --yellow: #f4c73f;
   --green: #a2b55a;
   --blue: #4596d3;
-  --purple: #aa6f6f;
+  --purple: #652222;
   --orange: #f4753f;
 
   --primary: var(--orange);
@@ -31,4 +31,8 @@
   font-weight: bold;
   font-family: 'Pacifico', cursive;
   color: #333; /*var(--dark);*/
+}
+
+.active{
+  background-color: blue;
 }

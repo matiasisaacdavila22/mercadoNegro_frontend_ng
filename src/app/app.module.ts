@@ -10,6 +10,8 @@ import { HeroComponent } from './public/master-page/hero/hero.component';
 import { FooterComponent } from './public/master-page/footer/footer.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from "@angular/common";
+import { BanerComponent } from './modules/baner/baner/baner.component';
+import { SlideComponent } from './modules/baner/slide/slide.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { CommonModule } from "@angular/common";
     NavbarComponent,
     SideMenuComponent,
     HeroComponent,
-    FooterComponent
+    FooterComponent,
+    BanerComponent,
+    SlideComponent
     ],
   imports: [
     BrowserModule,

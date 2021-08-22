@@ -1,50 +1,43 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { StoreModel } from 'src/app/models/store.model';
 import { StoreService } from 'src/app/services/store.service';
 import { Subscription } from 'rxjs';
 import { SecurityService } from 'src/app/services/security.service';
+import Swiper from 'swiper';
+import 'swiper/swiper-bundle.css';
 
-declare const showMessage: any;
 
 @Component({
   selector: 'app-default',
   templateUrl: './default.component.html',
   styleUrls: ['./default.component.css']
 })
-export class DefaultComponent implements OnInit {
+export class DefaultComponent implements OnInit, AfterViewInit {
 
-  storeList!: StoreModel[];
-  storeSelect: String = '';
+  mySwiper!:Swiper;
+
   isLogged: Boolean = false;
   subscription!: Subscription;
 
-  constructor(private service: StoreService,private serviceSecurity: SecurityService, private router:Router,) { }
+  constructor(private service: StoreService,private serviceSecurity: SecurityService, private router:Router) { }
 
   ngOnInit(): void {
-    this.isLogin();
-    this.getAllStore();
-
+   // this.isLogin();
   }
-  isLogin(){
+
+/*isLogin(){
     this.subscription = this.serviceSecurity.getStoreData().subscribe(data => {
       this.isLogged = data.isLoggend;
-    });
-  }
-
-  getAllStore(){
-    this.service.getAllRecords().subscribe(
-      data => {
-        this.storeList = data;
-        console.log(data)
-      },
-      error => {
-        showMessage('error edit.')
+      if(this.isLogged){
+        this.router.navigate([`/product/product-list`]);
+      }else{
+        this.router.navigate([`/store/store-list`]);
       }
-    )
-  }
-  selectedStore(id:any){
-    this.router.navigate([`/store/store-details/${id}`]);
+    });
+  }*/
+
+  ngAfterViewInit(){
+    this.mySwiper = new Swiper('.swiper-container');
   }
 
 }

@@ -1,20 +1,13 @@
-
 body{
   margin: 0px;
   padding: 0px;
-}
-
-.copy-header {
-  font-size: 10px;
-  color: #e4ff49;
-  display: block;
-  width: 35vw;
 }
 
 .product-grid {
   display: grid;
   grid-template-columns: repeat(1, 1fr);
 }
+
 
 .card{
   margin: 2px;

@@ -1,0 +1,31 @@
+<div *ngIf="!isLogged">
+
+  <div class="product-grid">
+    <div *ngFor="let i of storeList" >
+
+      <div class="card">
+        <h4>{{i.name|uppercase}}</h4>
+        <div class="card-image">
+           <div *ngIf="i.photo; else imgDefault"><img src="http://localhost:3000/images/store/{{i.photo}}" class="productImage"></div>
+           <ng-template #imgDefault><img src="assets/img/store/product_2.png" class="productImage"></ng-template>
+          </div>
+          <span class="card-title" class="orden"> {{i.description | slice:0:200}}</span>
+        <div class="card-content">
+          <span class="card-title" class="orden">Telefono :{{i.phone}}</span><br>
+          <span class="card-title" class="orden">Email :{{i.email}}</span><br>
+          <span class="card-title" class="orden">Direccion :{{i.adress}}</span>
+        </div>
+        <div class="card-action">
+          <button class="btn waves-effect waves-light" (click)="selectedStore(i.id)" type="button" name="action">Entrar
+            <i class="material-icons right">send</i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+
+  <div *ngIf="isLogged">
+    Mostrando contenido
+    <h2>estas logueado wili</h2>
+  </div>

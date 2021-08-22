@@ -1,12 +1,30 @@
+<div class="copy-header"><MARQUEE SCROLLDELAY =200>MercadoNegro presta servicio totalmente gratis!! </MARQUEE></div>
 <nav>
     <div class="nav-wrapper">
-      <a href="#" class="brand-logo">MercadoNegro Store</a>
+      <a routerLink="#" class="brand-logo">MercadoNegro Store</a>
+
       <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li *ngIf="!isLogged"><a routerLink="/security/login">Login</a></li>
-        <li *ngIf="isLogged"><a routerLink="/security/logout">Logout</a></li>
-        <li *ngIf="isLogged"><a routerLink="/security/change-password">Change-Password</a></li>
-        <li *ngIf="!isLogged"><a routerLink="/store/register">Register</a></li>
+        <li *ngIf="isLogged"><a routerLink="/products/product-list" routerLinkActive="active">Productos</a></li>
+        <li *ngIf="isLogged"><a routerLink="parameters/category-list" routerLinkActive="active">Categorias</a></li>
+        <li *ngIf="!isLogged"><a routerLink="/security/login" routerLinkActive="active">Login</a></li>
+        <li *ngIf="isLogged"><a (click)="RemoveConfirmation('1')" routerLinkActive="active">Logout</a></li>
+        <li *ngIf="isLogged"><a routerLink="/security/change-password" routerLinkActive="active">Change-Password</a></li>
+        <li *ngIf="!isLogged"><a routerLink="/store/register" routerLinkActive="active">Register</a></li>
         <li><a routerLink="/general/about-us">About us</a></li>
       </ul>
     </div>
   </nav>
+
+  <div id="removeConfirmationModal" class="modal">
+    <div class="modal-content">
+      <h4>Close Confirmation</h4>
+      <p>Are you sure close this Session?</p>
+    </div>
+    <div class="modal-footer">
+      <button (click)="RemoveRecord()" class="btn red waves-effect waves-light" type="button">Confirmar
+        <i class="material-icons right">delete</i></button>
+      <a class="modal-close waves-effect waves-green btn-flat">Close</a>
+    </div>
+  </div>
+
+
