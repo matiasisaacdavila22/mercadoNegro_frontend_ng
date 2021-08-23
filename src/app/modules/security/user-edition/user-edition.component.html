@@ -1,0 +1,111 @@
+<legend>
+  <div class="brand-logo">
+    <h5>Edit Usuario</h5>
+  </div>
+</legend>
+<div class="row col s12">
+  <div class="col s6" >
+<div id="login-page" class="row">
+  <div class="col s12  card-panel">
+  <form class="col s12" [formGroup]="fgValidator">
+    <input type="hidden" formControlName="id"/>
+    <div class="row">
+      <div class="input-field col s8">
+        <i class="material-icons prefix">add</i>
+        <input id="name" formControlName="name" type="text" class="validate">
+        <label for="name" class="active">Nombre</label>
+        <div class="warning-validator" *ngIf="fgv.name.errors && (fgv.name.dirty || fgv.name.touched)">
+          <strong *ngIf='fgv.name.errors.required'>this Campo is required</strong>
+          <strong *ngIf='fgv.name.errors.minlength'>his field must be at LEAST 2 CARACTERES MINIMUN of long</strong>
+          <strong *ngIf='fgv.name.errors.maxlength'>his field must be at LEAST 50 CARACTERES MAXIMUM of long</strong>
+        </div>
+      </div>
+      <div class="input-field col s8">
+        <i class="material-icons prefix">add</i>
+        <input id="email" formControlName="email" type="text" class="validate">
+        <label for="email" class="active">Email</label>
+        <div class="warning-validator" *ngIf="fgv.email.errors && (fgv.email.dirty || fgv.email.touched)">
+          <strong *ngIf='fgv.email.errors.required'>this Campo is required</strong>
+          <strong *ngIf='fgv.email.errors.minlength'>his field must be at LEAST 2 CARACTERES MINIMUN of long</strong>
+          <strong *ngIf='fgv.email.errors.maxlength'>his field must be at LEAST 50 CARACTERES MAXIMUM of long</strong>
+        </div>
+      </div>
+      <div class="input-field col s8">
+        <i class="material-icons prefix">add</i>
+        <input id="password" formControlName="password" type="text" class="validate">
+        <label for="password" class="active">Password</label>
+        <div class="warning-validator" *ngIf="fgv.password.errors && (fgv.password.dirty || fgv.password.touched)">
+          <strong *ngIf='fgv.password.errors.required'>this Campo is required</strong>
+          <strong *ngIf='fgv.password.errors.minlength'>his field must be at LEAST 2 CARACTERES MINIMUN of long</strong>
+          <strong *ngIf='fgv.password.errors.maxlength'>his field must be at LEAST 50 CARACTERES MAXIMUM of long</strong>
+        </div>
+      </div>
+      <div class="input-field col s8">
+        <i class="material-icons prefix">add</i>
+        <input id="role" formControlName="role" type="text" class="validate">
+        <label for="role" class="active">Role</label>
+        <div class="warning-validator" *ngIf="fgv.role.errors && (fgv.role.dirty || fgv.role.touched)">
+          <strong *ngIf='fgv.role.errors.required'>this Campo is required</strong>
+          <strong *ngIf='fgv.role.errors.minlength'>his field must be at LEAST 2 CARACTERES MINIMUN of long</strong>
+          <strong *ngIf='fgv.role.errors.maxlength'>his field must be at LEAST 50 CARACTERES MAXIMUM of long</strong>
+        </div>
+      </div>
+      <div class="input-field col s8">
+        <i class="material-icons prefix">add</i>
+        <input id="description" formControlName="description" type="text" class="validate">
+        <label for="brand" class="active">Description</label>
+        <div class="warning-validator" *ngIf="fgv.description.errors && (fgv.description.dirty || fgv.description.touched)">
+          <strong *ngIf='fgv.description.errors.required'>this Campo is required</strong>
+          <strong *ngIf='fgv.description.errors.minlength'>his field must be at LEAST 2 CARACTERES MINIMUN of long</strong>
+          <strong *ngIf='fgv.description.errors.maxlength'>his field must be at LEAST 50 CARACTERES MAXIMUM of long</strong>
+        </div>
+      </div>
+      <div class="input-field col s8">
+        <i class="material-icons prefix">add</i>
+        <input id="condition" formControlName="condition" type="text" class="validate">
+        <label for="condition" class="active">Nombre</label>
+        <div class="warning-validator" *ngIf="fgv.condition.errors && (fgv.condition.dirty || fgv.condition.touched)">
+          <strong *ngIf='fgv.condition.errors.required'>this Campo is required</strong>
+          <strong *ngIf='fgv.condition.errors.minlength'>his field must be at LEAST 2 CARACTERES MINIMUN of long</strong>
+          <strong *ngIf='fgv.condition.errors.maxlength'>his field must be at LEAST 50 CARACTERES MAXIMUM of long</strong>
+        </div>
+      </div>
+    </div>
+    <div class="file-field input-field col s12">
+      <div class="btn">
+        <span>File</span>
+        <input type="file" (change)="onFileSelect($event)">
+      </div>
+      <div class="file-path-wrapper">
+        <i class="material-icons prefix">camera_alt</i>
+        <input class="file-path validate" type="text">
+        <input formControlName="oldPhoto" type="text" value="{{oldPhoto}}">
+      </div>
+    </div>
+    <input formControlName="photo" type="text">
+    <div class="row col s6">
+      <div class="input-field col s12 buttons">
+        <button class="btn waves-effect waves-light" type="button" (click)="EditRecordFn()" name="action">Submit
+          <i class="material-icons right">send</i>
+        </button>
+        &nbsp;&nbsp;
+        <a routerLink="/security/user-list" class="waves-effect waves-light btn red"><i class="material-icons right">cancel</i>Salir</a>
+      </div>
+    </div>
+  </form>
+ </div>
+</div>
+</div>
+<div class="col s6">
+  <div class="card col s4">
+    <div class="card-image">
+      <img src="http://localhost:3000/images/user/{{photo}}" class="UserImage">
+    </div>
+    <div class="card-content">
+    </div>
+    <div class="card-action">
+    </div>
+  </div>
+</div>
+
+</div>

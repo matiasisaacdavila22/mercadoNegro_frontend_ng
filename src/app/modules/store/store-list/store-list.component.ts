@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { StoreModel } from 'src/app/models/store.model';
-import { StoreService } from 'src/app/services/store.service';
+import { StoreModel } from 'src/app/models/store/store.model';
+import { StoreService } from 'src/app/core/services/store/store.service';
 import { Subscription } from 'rxjs';
-import { SecurityService } from 'src/app/services/security.service';
+import { SecurityService } from 'src/app/core/services/security/security.service';
 
 declare const showMessage: any;
 

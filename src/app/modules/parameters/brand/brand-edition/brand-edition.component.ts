@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { BrandModel } from 'src/app/models/parameters/brand.model';
-import { BrandService } from 'src/app/services/parameters/brand.service';
+import { BrandService } from 'src/app/core/services/parameters/brand.service';
 
 declare const showMessage: any;
 

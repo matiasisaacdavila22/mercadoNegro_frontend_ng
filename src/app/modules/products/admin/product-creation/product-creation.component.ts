@@ -4,9 +4,9 @@ import { Router } from '@angular/router';
 import { BrandModel } from 'src/app/models/parameters/brand.model';
 import { CategoryModel } from 'src/app/models/parameters/category.model';
 import { ProductModel } from 'src/app/models/products/product.model';
-import { BrandService } from 'src/app/services/parameters/brand.service';
-import { CategoryService } from 'src/app/services/parameters/category.service';
-import { ProductService } from 'src/app/services/products/product.service';
+import { BrandService } from 'src/app/core/services/parameters/brand.service';
+import { CategoryService } from 'src/app/core/services/parameters/category.service';
+import { ProductService } from 'src/app/core/services/products/product.service';
 
 declare const showMessage: any;
 declare const initSelect:any;

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { BrandModel } from 'src/app/models/parameters/brand.model';
-import { BrandService } from 'src/app/services/parameters/brand.service';
+import { BrandService } from 'src/app/core/services/parameters/brand.service';
 
 declare const closeModal: any;
 declare const showMessage: any;

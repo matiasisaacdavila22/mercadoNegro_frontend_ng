@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ServiceConfig } from 'src/app/config/service-comfig';
 import { CategoryModel } from 'src/app/models/parameters/category.model';
-import { SecurityService } from '../security.service';
+import { SecurityService } from '../security/security.service';
 import { UploadImageModel } from 'src/app/models/products/upload-image.model';
 
 @Injectable({

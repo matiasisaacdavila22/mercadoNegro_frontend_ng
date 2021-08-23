@@ -6,6 +6,9 @@ import { ChangePasswordComponent } from './change-password/change-password.compo
 import { LoginComponent } from './login/login.component';
 import { LogoutComponent } from './logout/logout.component';
 import { PasswordResetComponent } from './password-reset/password-reset.component';
+import { UserEditionComponent } from './user-edition/user-edition.component';
+import { UserCreationComponent } from './user-creation/user-creation.component';
+import { UserListComponent } from './user-list/user-list.component';
 
 const routes: Routes = [
   {
@@ -26,6 +29,21 @@ const routes: Routes = [
   {
     path: 'change-password',
     component: ChangePasswordComponent,
+    canActivate: [AuthenticatedGuard]
+  },
+  {
+    path: 'user-edition/:id',
+    component: UserEditionComponent,
+    canActivate: [AuthenticatedGuard]
+  },
+  {
+    path: 'user-creation',
+    component: UserCreationComponent,
+    canActivate: [AuthenticatedGuard]
+  },
+  {
+    path: 'user-list',
+    component: UserListComponent,
     canActivate: [AuthenticatedGuard]
   }
 ];

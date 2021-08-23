@@ -1,13 +1,15 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { RouterModule, Routes, PreloadAllModules } from '@angular/router';
 import { AdminAuthenticatedGuard } from './guards/admin-authenticated.guard';
 import { AuthenticatedGuard } from './guards/authenticated.guard';
-import { DefaultComponent } from './public/home/default/default.component';
+//import { DefaultComponent } from './public/home/components/default/default.component';
 
 const routes: Routes = [
   {
     path: 'home',
-    component:DefaultComponent
+    loadChildren: () => import('./public/home/home.module')
+    .then(m => m.HomeModule)
+   // component:DefaultComponent
   },
   {
     path: '',
@@ -45,7 +47,10 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes,{
+    preloadingStrategy: PreloadAllModules
+  }
+    )],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { MD5 } from 'crypto-js';
-import { StoreModel } from 'src/app/models/store.model';
-import { SecurityService } from 'src/app/services/security.service';
+import { StoreModel } from 'src/app/models/store/store.model';
+import { SecurityService } from 'src/app/core/services/security/security.service';
 
 
 declare const showMessage: any;

@@ -1,0 +1,53 @@
+<a routerLink="/securyty/user-creation" class="waves-effect waves-light btn"><i class="material-icons right">add</i>Agregar</a>
+
+<table class="highlight, responsive-table">
+  <thead>
+    <tr>
+      <td>ID</td>
+      <td>Photo</td>
+      <td>Name</td>
+      <td>Email</td>
+      <td>Rol</td>
+      <td>Password</td>
+      <td>Description</td>
+      <td>condition</td>
+      <td>Edit</td>
+      <td>Remove</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let r of recordList | paginate: { itemsPerPage: 5, currentPage: page }">
+      <td>{{r.id}}</td>
+      <td>{{r.photo}}</td>
+      <td>{{r.name}}</td>
+      <td>{{r.email}}</td>
+      <td>{{r.role}}</td>
+      <td>{{r.password}}</td>
+      <td>{{r.description}}</td>
+      <td>{{r.condition}}</td>
+      <td><a routerLink="/security/user-edition//{{r.id}}" routerLink="router-link-active"
+         class="waves-effect waves-light btn"><i class="material-icons right">edit</i>Edit</a>
+      </td>
+      <td><button (click)="RemoveConfirmation(r.id)" class="btn red waves-effect waves-light" type="button">Borrar
+        <i class="material-icons right">delete</i>
+      </button>
+    </td>
+    </tr>
+  </tbody>
+
+</table>
+<pagination-controls (pageChange)="page = $event"></pagination-controls>
+
+<div id="removeConfirmationModal" class="modal">
+  <div class="modal-content">
+    <h4>Remove Confirmation</h4>
+    <p>Are you sure remove this record?</p>
+  </div>
+  <div class="modal-footer">
+    <button (click)="RemoveRecord()" class="btn red waves-effect waves-light" type="button">Confirmar
+      <i class="material-icons right">delete</i></button>
+    <a class="modal-close waves-effect waves-green btn-flat">Close</a>
+  </div>
+</div>
+
+

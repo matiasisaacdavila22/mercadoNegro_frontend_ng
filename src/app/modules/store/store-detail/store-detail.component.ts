@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { StoreModel } from 'src/app/models/store.model';
-import { StoreService } from 'src/app/services/store.service';
+import { StoreModel } from 'src/app/models/store/store.model';
+import { StoreService } from 'src/app/core/services/store/store.service';
 
 @Component({
   selector: 'app-store-detail',

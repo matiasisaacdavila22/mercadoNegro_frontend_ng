@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { SecurityService } from 'src/app/services/security.service';
+import { SecurityService } from 'src/app/core/services/security/security.service';
 
 @Component({
   selector: 'app-side-menu',

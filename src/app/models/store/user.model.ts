@@ -4,4 +4,5 @@ export class UserModel{
     password?: String;
     storeId?: String;
     role?: number;
+
 }

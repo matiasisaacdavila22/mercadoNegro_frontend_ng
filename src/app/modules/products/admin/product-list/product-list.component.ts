@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ProductModel } from 'src/app/models/products/product.model';
-import { ProductService } from 'src/app/services/products/product.service';
+import { ProductService } from 'src/app/core/services/products/product.service';
 
 declare const closeModal: any;
 declare const showMessage: any;

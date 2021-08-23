@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { Router } from '@angular/router';
-import { SecurityService } from 'src/app/services/security.service';
+import { SecurityService } from 'src/app/core/services/security/security.service';
 import { Route } from '@angular/compiler/src/core';
 
 declare const closeModal: any;

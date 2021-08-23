@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Form, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { ProductImageModel } from 'src/app/models/products/product-image.model copy';
-import { ProductImagesService } from 'src/app/services/products/product-images.service';
+import { ProductImagesService } from 'src/app/core/services/products/product-images.service';
 
 declare const closeModal: any;
 declare const showMessage: any;

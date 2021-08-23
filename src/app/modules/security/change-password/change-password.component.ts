@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { MD5 } from 'crypto-js';
 import { ChangePasswordModel } from 'src/app/models/security/change-password.model';
-import { SecurityService } from 'src/app/services/security.service';
+import { SecurityService } from 'src/app/core/services/security/security.service';
 
 declare const showMessage: any;
 declare const initSidenav: any;

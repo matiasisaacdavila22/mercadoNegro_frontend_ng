@@ -4,6 +4,7 @@
       <a routerLink="#" class="brand-logo">MercadoNegro Store</a>
 
       <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li *ngIf="isLogged"><a routerLink="/security/user-list" routerLinkActive="active">Users</a></li>
         <li *ngIf="isLogged"><a routerLink="/products/product-list" routerLinkActive="active">Productos</a></li>
         <li *ngIf="isLogged"><a routerLink="parameters/category-list" routerLinkActive="active">Categorias</a></li>
         <li *ngIf="!isLogged"><a routerLink="/security/login" routerLinkActive="active">Login</a></li>

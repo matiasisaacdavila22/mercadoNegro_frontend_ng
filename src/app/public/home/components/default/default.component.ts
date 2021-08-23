@@ -1,8 +1,8 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { StoreService } from 'src/app/services/store.service';
+import { StoreService } from 'src/app/core/services/store/store.service';
 import { Subscription } from 'rxjs';
-import { SecurityService } from 'src/app/services/security.service';
+import { SecurityService } from 'src/app/core/services/security/security.service';
 import Swiper from 'swiper';
 import 'swiper/swiper-bundle.css';
 
