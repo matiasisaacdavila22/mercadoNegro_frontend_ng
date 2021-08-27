@@ -23,7 +23,7 @@
       <label for="orden" class="active">Orden</label>
     </div>
     <div class="input-field col s3">
-      <button class="btn waves-effect waves-light" (click)="UploadImageFn()" type="button" name="action">Upload
+      <button mat-raised-button color="primary" (click)="UploadImageFn()" type="button" name="action">Upload
         <i class="material-icons right">send</i>
       </button>
     </div>
@@ -40,7 +40,7 @@
       <div class="card-content">
       </div>
       <div class="card-action">
-        <button class="btn waves-effect waves-light" (click)="RemoveConfirmation(i.id)" type="button" name="action">Remove
+        <button mat-raised-button color="primary" (click)="RemoveConfirmation(i.id)" name="action">Remove
           <i class="material-icons right">delete</i>
         </button>
       </div>
@@ -52,9 +52,9 @@
     <h4>Remove Confirmation</h4>
     <p>Are you sure remove this Image?</p>
   </div>
-  <div class="modal-footer">
-    <button (click)="RemoveRecord()" class="btn red waves-effect waves-light" type="button">Confirmar
+ <!-- <div class="modal-footer">
+    <button (click)="RemoveRecord()" mat-raised-button color="primary">Confirmar
       <i class="material-icons right">delete</i></button>
     <a class="modal-close waves-effect waves-green btn-flat">Close</a>
   </div>
-</div>
+</div>-->

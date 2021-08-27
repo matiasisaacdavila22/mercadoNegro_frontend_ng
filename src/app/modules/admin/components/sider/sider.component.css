@@ -1,3 +1,21 @@
+.sidenav-container {
+  height: 100%;
+}
+
+.sidenav {
+  width: 200px;
+}
+
+.sidenav .mat-toolbar {
+  background: inherit;
+}
+
+.mat-toolbar.mat-primary {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
 .brand-logo{
   padding-right: 80px;
   font-size: 2rem;
@@ -9,14 +27,4 @@
 .active{
   background-color: rgb(194, 194, 243);
 
-}
-.tolbar{
-  background-color:grey;
-}
-
-.header-row{
-  width:100%;
-}
-a{
-  padding-left: 10px;
 }

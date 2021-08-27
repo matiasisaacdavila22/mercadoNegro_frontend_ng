@@ -12,6 +12,7 @@ import { BrandEditionComponent } from './brand/brand-edition/brand-edition.compo
 import { BrandListComponent } from './brand/brand-list/brand-list.component';
 import {NgxPaginationModule} from 'ngx-pagination';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { MaterialModule } from '../material/material.module';
 
 
 @NgModule({
@@ -30,6 +31,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
      NgxPaginationModule,
      ReactiveFormsModule,
      FormsModule,
+     MaterialModule
   ]
 })
 export class ParametersModule { }

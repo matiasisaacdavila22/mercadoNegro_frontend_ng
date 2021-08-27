@@ -6,7 +6,7 @@ import { RegisterComponent } from './register/register.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { StoreDetailComponent } from './store-detail/store-detail.component';
 import { StoreListComponent } from './store-list/store-list.component';
-
+import { MaterialModule } from '../material/material.module';
 
 @NgModule({
   declarations: [
@@ -18,7 +18,8 @@ import { StoreListComponent } from './store-list/store-list.component';
     CommonModule,
     StoreRoutingModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    MaterialModule
   ]
 })
 export class StoreModule { }

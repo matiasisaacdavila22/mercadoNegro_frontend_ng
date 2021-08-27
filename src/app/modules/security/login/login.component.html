@@ -1,52 +1,49 @@
-<div id="login-page" class="row">
-  <div class="col s12 z-depth-6 card-panel">
     <form [formGroup]="fgValidator" class="login-form">
-      <div class="row">
-      </div>
-      <div class="row">
-        <div class="input-field col s12">
+      <mat-card class="login-card">
+        <mat-card-header>
+          <mat-card-title>login</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <div class="col">
           <i class="material-icons prefix">mail_outline</i>
-          <input class="validate" formControlName='email' id="email" type="email">
-          <label for="email" data-error="wrong" data-success="right">Email</label>
-          <div class="warning-validator" *ngIf='fgv.email.errors && (fgv.email.dirty || fgv.email.touched)'>
+          <mat-form-field class="full-width">
+          <input matInput placeholder="Email" class="validate" formControlName='email' id="email" type="email">
+          <mat-error class="warning-validator" *ngIf='fgv.email.errors && (fgv.email.dirty || fgv.email.touched)'>
             <strong *ngIf="fgv.email.errors.required">This field id required</strong>
             <strong *ngIf="fgv.email.errors.minlength">this field must be at least 6 long</strong>
             <strong *ngIf="fgv.email.errors.maxlength">this field must be at least 15 long</strong>
+          </mat-error>
+        </mat-form-field>
         </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="input-field col s12">
+        <div class="col">
           <i class="material-icons prefix">lock_outline</i>
-          <input id="password" formControlName='password' type="password">
-          <label for="password">Password</label>
-          <div class="warning-validator" *ngIf='fgv.password.errors && (fgv.password.dirty || fgv.password.touched)'>
+          <mat-form-field class="full-width">
+          <input matInput placeholder="********" id="password" formControlName='password' type="password">
+          <mat-error class="warning-validator" *ngIf='fgv.password.errors && (fgv.password.dirty || fgv.password.touched)'>
             <strong *ngIf="fgv.password.errors.required">This field id required</strong>
+          </mat-error>
+          </mat-form-field>
         </div>
-        </div>
-      </div>
-      <div class="row">
+      <div class="col">
         <div class="input-field col s12 m12 l12  login-text">
             <input type="checkbox" id="remember-me" />
             <label for="remember-me">Remember me</label>
         </div>
       </div>
-      <div class="row">
-        <div class="input-field col s12">
-          <button (click)='LoginStoreFn()' class="btn waves-effect waves-light col s12" type="submit" name="action">Login
+    </mat-card-content>
+      <div class="col">
+          <button (click)='LoginStoreFn()' mat-raised-button color="primary" type="submit" name="action">Login
             <i class="material-icons right">done</i>
           </button>
         </div>
-      </div>
       <div class="row">
-        <div class="input-field col s6 m6 l6">
+        <div class="col">
           <p class="margin medium-small"><a routerLink="/store/register">Register Now!</a></p>
         </div>
-        <div class="input-field col s6 m6 l6">
+        <div class="col">
             <p class="margin right-align medium-small"><a routerLink="/security/reset">Forgot password?</a></p>
         </div>
       </div>
+    </mat-card>
+  </form>
 
-    </form>
-  </div>
-</div>

@@ -38,6 +38,11 @@ const routes: Routes = [
     loadChildren: () => import('./modules/store/store.module')
      .then(m => m.StoreModule)
   },
+  {
+    path:'admin',
+    loadChildren: () => import('./modules/admin/admin.module')
+    .then(m => m.AdminModule)
+  },
 
  /**this must be the last one*/
 {

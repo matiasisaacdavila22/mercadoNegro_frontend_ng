@@ -11,6 +11,7 @@ import { UserListComponent } from './user-list/user-list.component';
 import { UserEditionComponent } from './user-edition/user-edition.component';
 import { UserCreationComponent } from './user-creation/user-creation.component';
 import {NgxPaginationModule} from 'ngx-pagination';
+import { MaterialModule } from '../material/material.module';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import {NgxPaginationModule} from 'ngx-pagination';
     SecurityRoutingModule,
     ReactiveFormsModule,
     FormsModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    MaterialModule
   ]
 })
 export class SecurityModule { }

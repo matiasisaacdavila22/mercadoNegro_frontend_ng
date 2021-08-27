@@ -1,118 +1,146 @@
-<fieldset>
-  <legend>Register From</legend>
-<div class="row">
-  <form [formGroup]="fgValidator" class="col s12" id="reg-form">
-    <div class="row">
-      <div class="input-field col s3">
-        <i class="material-icons prefix">person_add</i>
-        <input id="firstName" formControlName='firstName'  type="text" class="validate" required>
-        <label for="firstName">First Name</label>
-        <div class="warning-validator" *ngIf="fgv.firstName.errors && (fgv.firstName.dirty || fgv.firstName.touched)">
-          <strong *ngIf='fgv.firstName.errors.required'>this field is required</strong>
-          <strong *ngIf='fgv.firstName.errors.minlength'>this field must be at LEAST 3 CARACTERES of long</strong>
-          <strong *ngIf='fgv.firstName.errors.maxlength'>his field must be at LEAST 30 CARACTERES MAXIMUM of long</strong>
+<form [formGroup]="fgValidator" class="col s12" id="reg-form">
+  <mat-card class="register-card">
+    <mat-card-header>
+      <mat-card-title>Shipping Information</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="row">
+        <div class="col">
+          <i class="material-icons prefix">person_add</i>
+          <mat-form-field class="full-width">
+            <input matInput placeholder="Nombre" id="firstName" formControlName='firstName' type="text" class="validate" required>
+            <mat-error class="warning-validator"
+              *ngIf="fgv.firstName.errors && (fgv.firstName.dirty || fgv.firstName.touched)">
+              <strong *ngIf='fgv.firstName.errors.required'>this field is required</strong>
+              <strong *ngIf='fgv.firstName.errors.minlength'>this field must be at LEAST 3 CARACTERES of long</strong>
+              <strong *ngIf='fgv.firstName.errors.maxlength'>his field must be at LEAST 30 CARACTERES MAXIMUM of long</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col">
+          <i class="material-icons prefix">person_add</i>
+          <mat-form-field class="full-width">
+            <input matInput placeholder="Apellido" id="lastName" formControlName='lastName' type="text" class="validate" required>
+            <mat-error class="warning-validator"
+              *ngIf="fgv.lastName.errors && (fgv.lastName.dirty || fgv.lastName.touched)">
+              <strong *ngIf='fgv.lastName.errors.required'>this field is required</strong>
+              <strong *ngIf='fgv.lastName.errors.minlength'>this field must be at LEAST 3 CARACTERES of long</strong>
+              <strong *ngIf='fgv.lastName.errors.maxlength'>his field must be at LEAST 30 CARACTERES MAXIMUM of
+                long</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col">
+          <i class="material-icons prefix">mail_outline</i>
+          <mat-form-field class="full-width">
+            <input matInput placeholder="Email" id="email" formControlName='email' type="email" class="validate" required>
+            <mat-error class="warning-validator" *ngIf='fgv.email.errors && (fgv.email.dirty || fgv.email.touched)'>
+              <strong *ngIf="fgv.email.errors.required">This field id required</strong>
+              <strong *ngIf="fgv.email.errors.email">this field must be at mail corret type</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col">
+          <i class="material-icons prefix">phone</i>
+          <mat-form-field class="full-width">
+            <input matInput placeholder="Telefono" id="phone" formControlName='phone' type="text" class="validate"
+              required>
+            <mat-error class="warning-validator" *ngIf='fgv.phone.errors && (fgv.phone.dirty || fgv.phone.touched)'>
+              <strong *ngIf="fgv.phone.errors.required">This field id required</strong>
+              <strong *ngIf="fgv.phone.errors.minlength">this field must be at least 6 long</strong>
+              <strong *ngIf="fgv.phone.errors.maxlength">this field must be at least 15 long</strong>
+            </mat-error>
+          </mat-form-field>
         </div>
       </div>
-      <div class="input-field col s3">
-        <i class="material-icons prefix">person_add</i>
-        <input id="lastName" formControlName='lastName' type="text" class="validate" required>
-        <label for="lastName">Last Name</label>
-        <div class="warning-validator" *ngIf="fgv.lastName.errors && (fgv.lastName.dirty || fgv.lastName.touched)">
-          <strong *ngIf='fgv.lastName.errors.required'>this field is required</strong>
-          <strong *ngIf='fgv.lastName.errors.minlength'>this field must be at LEAST 3 CARACTERES of long</strong>
-          <strong *ngIf='fgv.lastName.errors.maxlength'>his field must be at LEAST 30 CARACTERES MAXIMUM of long</strong>
-        </div>
+      <div class="row">
+      <div class="col">
+        <i class="material-icons prefix">business</i>
+        <mat-form-field class="full-width">
+          <input matInput placeholder="Empresa" id="storeName" formControlName='storeName' type="text" class="validate"
+            required>
+          <mat-error class="warning-validator"
+            *ngIf='fgv.storeName.errors && (fgv.storeName.dirty || fgv.storeName.touched)'>
+            <strong *ngIf="fgv.storeName.errors.required">This field id required</strong>
+            <strong *ngIf="fgv.storeName.errors.minlength">this field must be at least 3 long </strong>
+            <strong *ngIf="fgv.storeName.errors.maxlength">this field must be at least 30 long</strong>
+          </mat-error>
+        </mat-form-field>
       </div>
-      <div class="input-field col s3">
-        <i class="material-icons prefix">mail_outline</i>
-        <input id="email" formControlName='email' type="email" class="validate" required>
-        <label for="email">Email</label>
-        <div class="warning-validator" *ngIf='fgv.email.errors && (fgv.email.dirty || fgv.email.touched)'>
-          <strong *ngIf="fgv.email.errors.required">This field id required</strong>
-          <strong *ngIf="fgv.email.errors.email">this field must be at mail corret type</strong>
-      </div>
-      </div>
-      <div class="input-field col s3">
-        <i class="material-icons prefix">phone</i>
-        <input id="phone" formControlName='phone' type="text" class="validate" required>
-        <label for="phone">Phone</label>
-        <div class="warning-validator" *ngIf='fgv.phone.errors && (fgv.phone.dirty || fgv.phone.touched)'>
-          <strong *ngIf="fgv.phone.errors.required">This field id required</strong>
-          <strong *ngIf="fgv.phone.errors.minlength">this field must be at least 6 long</strong>
-          <strong *ngIf="fgv.phone.errors.maxlength">this field must be at least 15 long</strong>
-      </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="input-field col s3">
-        <i class="material-icons prefix">person_add</i>
-        <input id="storeName" formControlName='storeName' type="text" class="validate" required>
-        <label for="storeName">Store Name</label>
-        <div class="warning-validator" *ngIf='fgv.storeName.errors && (fgv.storeName.dirty || fgv.storeName.touched)'>
-          <strong *ngIf="fgv.storeName.errors.required">This field id required</strong>
-          <strong *ngIf="fgv.storeName.errors.minlength">this field must be at least 3 long </strong>
-          <strong *ngIf="fgv.storeName.errors.maxlength">this field must be at least 30 long</strong>
-      </div>
-      </div>
-      <div class="input-field col s3">
+      <div class="col">
         <i class="material-icons prefix">location_on</i>
-        <input id="storeAddress" formControlName='storeAddress' type="text" class="validate" required>
-        <label for="storeAddress">Store Address</label>
-        <div class="warning-validator" *ngIf='fgv.storeAddress.errors && (fgv.storeAddress.dirty || fgv.storeAddress.touched)'>
-          <strong *ngIf="fgv.storeAddress.errors.required">This field id required </strong>
-          <strong *ngIf="fgv.storeAddress.errors.minlength">this field must be at least 3 long </strong>
-          <strong *ngIf="fgv.storeAddress.errors.maxlength">this field must be at least 30 long</strong>
+        <mat-form-field class="full-width">
+          <input matInput placeholder="Direccion" id="storeAddress" formControlName='storeAddress' type="text"
+            class="validate" required>
+          <mat-error class="warning-validator"
+            *ngIf='fgv.storeAddress.errors && (fgv.storeAddress.dirty || fgv.storeAddress.touched)'>
+            <strong *ngIf="fgv.storeAddress.errors.required">This field id required </strong>
+            <strong *ngIf="fgv.storeAddress.errors.minlength">this field must be at least 3 long </strong>
+            <strong *ngIf="fgv.storeAddress.errors.maxlength">this field must be at least 30 long</strong>
+          </mat-error>
+        </mat-form-field>
       </div>
-      </div>
-      <div class="input-field col s3">
+      <div class="col">
         <i class="material-icons prefix">mail_outline</i>
-        <input id="storeEmail" formControlName='storeEmail' type="email" class="validate" required>
-        <label for="storeEmail">Store Email</label>
-        <div class="warning-validator" *ngIf='fgv.storeEmail.errors && (fgv.storeEmail.dirty || fgv.storeEmail.touched)'>
-          <strong *ngIf="fgv.storeEmail.errors.required">This field id required</strong>
-          <strong *ngIf="fgv.storeEmail.errors.email">this field must be at correct email type</strong>
+        <mat-form-field class="full-width">
+          <input matInput placeholder="Email Empresa" id="storeEmail" formControlName='storeEmail' type="email"
+            class="validate" required>
+          <mat-error class="warning-validator"
+            *ngIf='fgv.storeEmail.errors && (fgv.storeEmail.dirty || fgv.storeEmail.touched)'>
+            <strong *ngIf="fgv.storeEmail.errors.required">This field id required</strong>
+            <strong *ngIf="fgv.storeEmail.errors.email">this field must be at correct email type</strong>
+          </mat-error>
+        </mat-form-field>
       </div>
-      </div>
-      <div class="input-field col s3">
+      <div class="col">
         <i class="material-icons prefix">phone</i>
-        <input id="storePhone" formControlName='storePhone' type="text" class="validate" required>
-        <label for="storePhone">Store Phone</label>
-        <div class="warning-validator" *ngIf='fgv.storePhone.errors && (fgv.storePhone.dirty || fgv.storePhone.touched)'>
-          <strong *ngIf="fgv.storePhone.errors.required">This field id required</strong>
-          <strong *ngIf="fgv.storePhone.errors.minlength">this field must be at least 6 long</strong>
-          <strong *ngIf="fgv.storePhone.errors.maxlength">this field must be at least 15 long</strong>
-      </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="input-field col s12">
-        <i class="material-icons prefix">lock_outline</i>
-        <input id="password" formControlName='password' type="password" class="validate" minlength="6" required>
-        <label for="password">Password</label>
-        <div class="warning-validator" *ngIf='fgv.password.errors && (fgv.password.dirty || fgv.password.touched)'>
-          <strong *ngIf="fgv.password.errors.required">This field id required</strong>
-          <strong *ngIf="fgv.password.errors.minlength">this field must be at least 8 long</strong>
-          <strong *ngIf="fgv.password.errors.maxlength">this field must be at least 30 long</strong>
-      </div>
-      </div>
-      <div class="input-field col s12">
-        <i class="material-icons prefix">lock_outline</i>
-        <input id="password2" formControlName='password2' type="password" class="validate" minlength="6" required>
-        <label for="password2"> Repeat Password</label>
-        <div class="warning-validator" *ngIf='fgv.password2.errors && (fgv.password2.dirty || fgv.password2.touched)'>
-          <strong *ngIf="fgv.password2.errors.required">This field id required</strong>
-          <strong *ngIf="fgv.password2.errors.minlength">this field must be at least 8 long</strong>
-          <strong *ngIf="fgv.password2.errors.maxlength">this field must be at least 30 long</strong>
-      </div>
+        <mat-form-field class="full-width">
+         <input matInput placeholder="Telefono Empresa" id="storePhone" formControlName='storePhone' type="text"
+            class="validate" required>
+          <mat-error class="warning-validator"
+            *ngIf='fgv.storePhone.errors && (fgv.storePhone.dirty || fgv.storePhone.touched)'>
+            <strong *ngIf="fgv.storePhone.errors.required">This field id required</strong>
+            <strong *ngIf="fgv.storePhone.errors.minlength">this field must be at least 6 long</strong>
+            <strong *ngIf="fgv.storePhone.errors.maxlength">this field must be at least 15 long</strong>
+          </mat-error>
+        </mat-form-field>
       </div>
     </div>
-    <div class="row">
-      <div class="input-field col s6">
-        <button (click)='StoreRegisterFn()' class="btn btn-large btn-register waves-effect waves-light" type="submit" name="action">Register
-          <i class="material-icons right">done</i>
-        </button>
+      <div class="row">
+        <div class="col">
+          <i class="material-icons prefix">lock_outline</i>
+          <mat-form-field class="full-width">
+            <input matInput placeholder="********" id="password" formControlName='password' type="password"
+              class="validate" minlength="6" required>
+            <mat-error class="warning-validator"
+              *ngIf='fgv.password.errors && (fgv.password.dirty || fgv.password.touched)'>
+              <strong *ngIf="fgv.password.errors.required">This field id required</strong>
+              <strong *ngIf="fgv.password.errors.minlength">this field must be at least 8 long</strong>
+              <strong *ngIf="fgv.password.errors.maxlength">this field must be at least 30 long</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col">
+          <i class="material-icons prefix">lock_outline</i>
+          <mat-form-field class="full-width">
+             <input matInput placeholder="Repita Password" id="password2" formControlName='password2' type="password"
+              class="validate" minlength="6" required>
+            <mat-error class="warning-validator"
+              *ngIf='fgv.password2.errors && (fgv.password2.dirty || fgv.password2.touched)'>
+              <strong *ngIf="fgv.password2.errors.required">This field id required</strong>
+              <strong *ngIf="fgv.password2.errors.minlength">this field must be at least 8 long</strong>
+              <strong *ngIf="fgv.password2.errors.maxlength">this field must be at least 30 long</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
       </div>
-    </div>
-  </form>
-</div>
-</fieldset>
+    </mat-card-content>
+      <div class="row">
+        <div class="input-field col s6">
+          <button (click)='StoreRegisterFn()' mat-raised-button color="primary" type="submit" name="action">Register
+            <i class="material-icons right">done</i>
+          </button>
+        </div>
+      </div>
+  </mat-card>
+</form>

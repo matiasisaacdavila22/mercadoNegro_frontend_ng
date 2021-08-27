@@ -7,6 +7,8 @@ import { ProductModel } from 'src/app/models/products/product.model';
 import { BrandService } from 'src/app/core/services/parameters/brand.service';
 import { CategoryService } from 'src/app/core/services/parameters/category.service';
 import { ProductService } from 'src/app/core/services/products/product.service';
+import { Observable } from 'rxjs';
+
 
 declare const showMessage: any;
 declare const initSelect:any;
@@ -23,12 +25,14 @@ export class ProductCreationComponent implements OnInit {
   categoryList!: CategoryModel[];
   brandList!: BrandModel[];
 
+
   constructor(
     private fb: FormBuilder,
     private service: ProductService,
     private router:Router,
     private brandService: BrandService,
-    private categoryService: CategoryService
+    private categoryService: CategoryService,
+
      ) { }
 
   ngOnInit(): void {
@@ -99,6 +103,7 @@ export class ProductCreationComponent implements OnInit {
 
     }
   }
+
 
  getStoreData(): ProductModel{
     let model = new ProductModel();
