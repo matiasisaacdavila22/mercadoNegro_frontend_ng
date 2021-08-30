@@ -7,7 +7,11 @@ import { StoreListComponent } from './store-list/store-list.component';
 
 const routes: Routes = [
   {
-    path: 'store-details/:id',
+    path: 'store-details',
+    component: StoreDetailComponent
+  },
+  {
+    path: 'store-edit/:id',
     component: StoreDetailComponent
   },
   {

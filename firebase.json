@@ -1,0 +1,19 @@
+{
+  "hosting": [
+    {
+      "target": "mercadoNegroFrontedNG",
+      "public": "dist/mercadoNegroFrontedNG",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "rewrites": [
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ]
+    }
+  ]
+}

@@ -8,6 +8,8 @@ import { MaterialModule } from '../material/material.module';
 import { LayoutModule } from '@angular/cdk/layout';
 import { SiderComponent } from './components/sider/sider.component';
 
+
+
 @NgModule({
   declarations: [ProductFormComponent, SiderComponent],
   imports: [
@@ -16,6 +18,7 @@ import { SiderComponent } from './components/sider/sider.component';
     ReactiveFormsModule,
     MaterialModule,
     LayoutModule,
+
    ]
 })
 export class AdminModule { }

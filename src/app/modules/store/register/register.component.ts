@@ -20,7 +20,7 @@ export class RegisterComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private service: StoreService,
-    private router:Router
+    private router:Router,
      ) { }
 
   ngOnInit(): void {

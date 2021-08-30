@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "mercado-store": {
+      "hosting": {
+        "mercadoNegroFrontedNG": [
+          "mercado-store"
+        ]
+      }
+    }
+  }
+}

@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { MD5 } from 'crypto-js';
 import { StoreModel } from 'src/app/models/store/store.model';
 import { SecurityService } from 'src/app/core/services/security/security.service';
+import { AuthService } from 'src/app/core/services/auth/auth.service';
 
 
 declare const showMessage: any;
@@ -21,12 +22,16 @@ export class LoginComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private service: SecurityService,
-    private router:Router
+    private router:Router,
+    private authService: AuthService
      ) { }
 
   ngOnInit(): void {
     this.FormBuilder();
   }
+
+
+
 
   FormBuilder(){
     this.fgValidator = this.fb.group({

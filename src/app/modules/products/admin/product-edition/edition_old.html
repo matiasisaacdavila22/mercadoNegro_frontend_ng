@@ -1,0 +1,109 @@
+
+  <legend>
+    <div class="brand-logo">
+      <h5>Edition Product</h5>
+    </div>
+  </legend>
+<div id="login-page" class="row">
+  <div class="col s12  card-panel">
+  <form class="col s12" [formGroup]="fgValidator">
+    <input type="hidden" formControlName="id"/>
+    <div class="row">
+      <label >category</label>
+     <div class="input-field col s4">
+
+      <select class="browser-default" formControlName="categoryId">
+        <option *ngFor="let c of categoryList" value="{{c.id}}">{{c.name}}</option>
+      </select>
+
+    </div>
+    <label >Marca</label>
+    <div class="input-field col s4">
+      <select class="browser-default" formControlName="brandId">
+        <option *ngFor="let o of brandList" value="{{o.id}}">{{o.name}}</option>
+      </select>
+
+    </div>
+  </div>
+    <div class="row">
+      <div class="input-field col s6">
+        <input id="name" formControlName="name" type="text" class="validate">
+        <label for="icon_create"  class="active">Nombre</label>
+        <div class="warning-validator" *ngIf="fgv.name.errors && (fgv.name.dirty || fgv.name.touched)">
+          <strong *ngIf='fgv.name.errors.required'>this Campo is required</strong>
+          <strong *ngIf='fgv.name.errors.maxlength'>his field must be at LEAST 100 CARACTERES MAXIMUM of long</strong>
+          <strong *ngIf='fgv.name.errors.minlength'>his field must be at LEAST 3 CARACTERES MAXIMUM of long</strong>
+        </div>
+      </div>
+      <div class="input-field col s6">
+          <input id="name" formControlName="model" type="text" class="validate">
+        <label for="icon_create"  class="active">modelo</label>
+        <div class="warning-validator" *ngIf="fgv.model.errors && (fgv.model.dirty || fgv.model.touched)">
+          <strong *ngIf='fgv.model.errors.required'>this Campo is required</strong>
+          <strong *ngIf='fgv.model.errors.maxlength'>his field must be at LEAST 50 CARACTERES MAXIMUM of long</strong>
+          <strong *ngIf='fgv.model.errors.minlength'>his field must be at LEAST 3 CARACTERES MAXIMUM of long</strong>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s12">
+          <label for="icon_create"  class="active">Description</label>
+        <textarea formControlName="description" id="description"  type="text"></textarea>
+         <div class="warning-validator" *ngIf="fgv.description.errors && (fgv.description.dirty || fgv.description.touched)">
+          <strong *ngIf='fgv.description.errors.required'>this Campo is required</strong>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+    <div class="file-field input-field col s12">
+      <div class="btn">
+        <span>File</span>
+        <input type="file">
+      </div>
+      <div class="file-path-wrapper">
+        <i class="material-icons prefix">camera_alt</i>
+        <input formControlName="photo" class="file-path validate" type="text" id="photo">
+        <div class="warning-validator" *ngIf="fgv.photo.errors && (fgv.photo.dirty || fgv.photo.touched)">
+         <strong *ngIf='fgv.photo.errors.required'>this Campo is required</strong>
+       </div>
+      </div>
+    </div>
+  </div>
+    <div class="row">
+      <div class="input-field col s4">
+        <input id="name" formControlName="price" type="number" class="validate">
+        <label for="icon_create"  class="active">Precio</label>
+        <div class="warning-validator" *ngIf="fgv.price.errors && (fgv.price.dirty || fgv.price.touched)">
+          <strong *ngIf='fgv.price.errors.required'>this Campo is required</strong>
+          <strong *ngIf='fgv.price.errors.maxlength'>his field must be at number</strong>
+        </div>
+      </div>
+      <div class="input-field col s4">
+        <input id="name" formControlName="cost" type="number" class="validate">
+        <label for="icon_create"  class="active">Costo</label>
+        <div class="warning-validator" *ngIf="fgv.cost.errors && (fgv.cost.dirty || fgv.cost.touched)">
+          <strong *ngIf='fgv.cost.errors.required'>this Campo is required</strong>
+          <strong *ngIf='fgv.cost.errors.maxlength'>his field must be at number</strong>
+        </div>
+      </div>
+      <div class="input-field col s4">
+        <input id="name" formControlName="stock" type="number" class="validate">
+        <label for="icon_create"  class="active">Stock</label>
+        <div class="warning-validator" *ngIf="fgv.stock.errors && (fgv.stock.dirty || fgv.stock.touched)">
+          <strong *ngIf='fgv.stock.errors.required'>this Campo is required</strong>
+          <strong *ngIf='fgv.stock.errors.maxlength'>his field must be at number</strong>
+        </div>
+      </div>
+    </div>
+    <div class="row col s12">
+      <div class="input-field col s12 buttons">
+        <button mat-raised-button type="button" (click)="EditRecordFn()" name="action">Submit
+          <i class="material-icons right">send</i>
+        </button>
+        <a routerLink="/products/product-list" class="waves-effect waves-light btn red"><i class="material-icons right">cancel</i>Cancel</a>
+      </div>
+    </div>
+  </form>
+ </div>
+</div>
+

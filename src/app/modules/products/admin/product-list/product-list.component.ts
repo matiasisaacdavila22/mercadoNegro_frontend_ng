@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ProductModel } from 'src/app/models/products/product.model';
 import { ProductService } from 'src/app/core/services/products/product.service';
+import { CartService } from 'src/app/core/services/cart/cart.service'
 
 declare const closeModal: any;
 declare const showMessage: any;
@@ -22,7 +23,8 @@ export class ProductListComponent implements OnInit {
 
   constructor(
     private service: ProductService,
-    private router: Router
+    private router: Router,
+    private cartService: CartService
 
     ) { }
 
@@ -67,5 +69,17 @@ export class ProductListComponent implements OnInit {
       }
     );
   }
+  }
+
+  addCard(id:string){
+    this.service.getRecordById(id).subscribe(
+      data => {
+        this.cartService.addCart(data);
+      },
+      error => {
+        console.log(error);
+      }
+    )
+
   }
 }

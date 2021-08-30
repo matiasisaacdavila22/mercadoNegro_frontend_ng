@@ -2,19 +2,26 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes, PreloadAllModules } from '@angular/router';
 import { AdminAuthenticatedGuard } from './guards/admin-authenticated.guard';
 import { AuthenticatedGuard } from './guards/authenticated.guard';
-//import { DefaultComponent } from './public/home/components/default/default.component';
+import { LayoutComponent } from './public/master-page/layout/layout.component';
 
 const routes: Routes = [
+
+  {
+    path: '',
+    component: LayoutComponent,
+    children: [
+      {
+        path: '',
+        redirectTo: '/home',
+        pathMatch: 'full',
+      },
   {
     path: 'home',
     loadChildren: () => import('./public/home/home.module')
     .then(m => m.HomeModule)
    // component:DefaultComponent
   },
-  {
-    path: '',
-    pathMatch: 'full',
-    redirectTo: '/home'
+]
   },
   {
     path: 'security',
@@ -26,12 +33,6 @@ const routes: Routes = [
     loadChildren: () => import('./modules/parameters/parameters.module')
      .then(m => m.ParametersModule),
      canActivate: [AdminAuthenticatedGuard]
-  },
-  {
-    path: 'products',
-    loadChildren: () => import('./modules/products/products.module')
-     .then(m => m.ProductsModule),
-     canActivate: [AuthenticatedGuard]
   },
   {
     path: 'store',

@@ -1,0 +1,22 @@
+.brand-logo{
+  padding-right: 80px;
+  font-size: 2rem;
+  font-weight: bold;
+  font-family: 'Pacifico', cursive;
+  color: #333; /*var(--dark);*/
+}
+
+.active{
+  background-color: rgb(194, 194, 243);
+
+}
+.tolbar{
+  background-color:grey;
+}
+
+.header-row{
+  width:100%;
+}
+a{
+  padding-left: 10px;
+}

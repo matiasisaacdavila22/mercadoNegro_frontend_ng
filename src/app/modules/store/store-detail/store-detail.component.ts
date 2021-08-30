@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { StoreModel } from 'src/app/models/store/store.model';
 import { StoreService } from 'src/app/core/services/store/store.service';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-store-detail',
@@ -10,18 +12,29 @@ import { StoreService } from 'src/app/core/services/store/store.service';
 })
 export class StoreDetailComponent implements OnInit {
 
-    storeId!: String;
+    storeId!: any;
     storeDetail!: StoreModel;
 
-  constructor(private route: ActivatedRoute, private service: StoreService) {
-    this.storeId = this.route.snapshot.params["id"];
+  constructor(private route: ActivatedRoute, private service: StoreService, private router:Router) {
+   // this.storeId = this.route.snapshot.params["id"];
    }
 
   ngOnInit(): void {
-    this.getDataOfStore();
+    this.getStorage();
   }
 
+  getStorage(){
+   let session = localStorage.getItem('session');
+    if(session){
+      let jsonSession = JSON.parse(session);
+
+    this.storeId = jsonSession.id;
+    this.getDataOfStore();
+  }
+}
+
   getDataOfStore(){
+    console.log('llegue getdatastore   ******')
     this.service.getRecordById(this.storeId).subscribe(
       data => {
           this.storeDetail = data;
@@ -31,6 +44,10 @@ export class StoreDetailComponent implements OnInit {
 
       }
     )
+  }
+
+  selectedStore(id:any){
+    this.router.navigate([`/store/store-details/${id}`]);
   }
 
 }

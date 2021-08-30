@@ -6,6 +6,8 @@ import { Subscription } from 'rxjs';
 import { Router } from '@angular/router';
 import { SecurityService } from 'src/app/core/services/security/security.service';
 import { Route } from '@angular/compiler/src/core';
+import { CartService } from 'src/app/core/services/cart/cart.service';
+
 
 declare const closeModal: any;
 declare const showMessage: any;
@@ -18,6 +20,7 @@ declare const showRemoveConfirmationWindows: any;
 })
 export class SiderComponent {
 
+  total$!: Observable<number>;
   isLogged: Boolean = false;
   role: number = 0;
   idRemove: String = '';
@@ -29,7 +32,17 @@ export class SiderComponent {
       shareReplay()
     );
 
-  constructor(private breakpointObserver: BreakpointObserver,private service: SecurityService, private router:Router) {}
+  constructor(
+    private breakpointObserver: BreakpointObserver,
+    private service: SecurityService,
+    private router:Router,
+    private cartService: CartService
+    ) {
+      this.total$ = this.cartService.cart$
+      .pipe(
+        map(products => products.length)
+      );
+    }
 
 
   ngOnInit(): void {
