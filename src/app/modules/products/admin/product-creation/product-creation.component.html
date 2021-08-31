@@ -80,6 +80,12 @@
       </div>
       -->
       <div class="row">
+        <div class="col-xs">
+          <img *ngIf="(image$ | async) as image" [src]="image" alt="">
+          <input type="file" (change)="uploadFile($event)">
+       </div>
+      </div>
+      <div class="row">
         <div class="col">
           <mat-form-field class="full-width">>
             <input matInput id="name" formControlName="stock" type="text" class="validate" placeholder="Stock">

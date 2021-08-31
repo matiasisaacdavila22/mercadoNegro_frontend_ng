@@ -8,10 +8,14 @@ import { BrandService } from 'src/app/core/services/parameters/brand.service';
 import { CategoryService } from 'src/app/core/services/parameters/category.service';
 import { ProductService } from 'src/app/core/services/products/product.service';
 import { Observable } from 'rxjs';
+import { AngularFireStorage } from 'angularfire2/storage';
+import { finalize } from 'rxjs/operators';
 
 
 declare const showMessage: any;
 declare const initSelect:any;
+
+
 
 @Component({
   selector: 'app-product-creation',
@@ -24,7 +28,7 @@ export class ProductCreationComponent implements OnInit {
   categoryselect!:CategoryModel;
   categoryList!: CategoryModel[];
   brandList!: BrandModel[];
-
+  image$!:Observable<any>;
 
   constructor(
     private fb: FormBuilder,
@@ -32,6 +36,7 @@ export class ProductCreationComponent implements OnInit {
     private router:Router,
     private brandService: BrandService,
     private categoryService: CategoryService,
+    private afStorage:AngularFireStorage
 
      ) { }
 
@@ -83,6 +88,28 @@ export class ProductCreationComponent implements OnInit {
       photo: ['',[Validators.maxLength(80)]],
     })
   }
+
+  uploadFile(event:any) {
+    console.log('un evento se a lanzado con la imge')
+    const file = event.target.files[0];
+    const name = 'image.png';
+    const fileRef = this.afStorage.ref(name);
+    const task = this.afStorage.upload(name, file);
+
+    task.snapshotChanges()
+    .pipe(
+      finalize(() => {
+        this.image$ = fileRef.getDownloadURL();
+       this.image$.subscribe(url => {
+          console.log(url);
+            this.fgv.photo.setValue(url);
+
+      });
+      })
+    )
+    .subscribe();
+  }
+
 
  SaveNewRecordFn(){
     if(this.fgValidator.invalid){

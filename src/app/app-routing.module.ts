@@ -29,18 +29,13 @@ const routes: Routes = [
      .then(m => m.SecurityModule)
   },
   {
-    path: 'parameters',
-    loadChildren: () => import('./modules/parameters/parameters.module')
-     .then(m => m.ParametersModule),
-     canActivate: [AdminAuthenticatedGuard]
-  },
-  {
     path: 'store',
     loadChildren: () => import('./modules/store/store.module')
      .then(m => m.StoreModule)
   },
   {
     path:'admin',
+
     loadChildren: () => import('./modules/admin/admin.module')
     .then(m => m.AdminModule)
   },

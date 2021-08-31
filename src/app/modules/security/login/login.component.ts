@@ -30,7 +30,18 @@ export class LoginComponent implements OnInit {
     this.FormBuilder();
   }
 
-
+  LoginStoreFn2(){
+    if(this.fgValidator.valid){
+    const value = this.fgValidator.value;
+    this.authService.login(value.email, value.password)
+   .then(() => {
+    this.router.navigate(['/admin/'])
+   })
+   .catch( () => {
+     alert('user no valido!');
+   })
+  }
+}
 
 
   FormBuilder(){
@@ -48,8 +59,8 @@ export class LoginComponent implements OnInit {
      this.service.StoreLogin(model).subscribe(
        data => {
          this.service.saveSessionData(data);
-        showMessage('Welcome to yout account')
-        this.router.navigate(['/products/product-list'])
+        //showMessage('Welcome to yout account')
+      this.LoginStoreFn2();
       },
        error => {
          showMessage('error identifying:')

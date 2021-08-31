@@ -13,6 +13,15 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import {MatStepperModule} from '@angular/material/stepper';
 
+import { LayoutModule } from '@angular/cdk/layout';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatTableModule } from '@angular/material/table';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatSortModule } from '@angular/material/sort';
+import { MatPaginatorModule } from '@angular/material/paginator';
+
+
 
 
 
@@ -30,7 +39,14 @@ import {MatStepperModule} from '@angular/material/stepper';
     MatSidenavModule,
     MatIconModule,
     MatListModule,
-    MatStepperModule
+    MatStepperModule,
+    LayoutModule,
+    MatFormFieldModule,
+    MatTableModule,
+    MatGridListModule,
+    MatMenuModule,
+    MatSortModule,
+    MatPaginatorModule
   ],
   exports: [
     MatButtonModule,
@@ -44,7 +60,14 @@ import {MatStepperModule} from '@angular/material/stepper';
     MatSidenavModule,
     MatIconModule,
     MatListModule,
-    MatStepperModule
+    MatStepperModule,
+    LayoutModule,
+    MatFormFieldModule,
+    MatTableModule,
+    MatGridListModule,
+    MatMenuModule,
+    MatSortModule,
+    MatPaginatorModule
   ]
 })
 export class MaterialModule { }

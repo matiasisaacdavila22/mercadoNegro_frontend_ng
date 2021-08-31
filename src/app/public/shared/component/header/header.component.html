@@ -10,8 +10,8 @@
         <a *ngIf="isLogged"><a mat-flat-button matBadge="4" matBadgeColor="primary" routerLink="/security/user-list" routerLinkActive="active">Users</a></a>
     </nav>
     <a *ngIf="isLogged"><a mat-flat-button routerLink="/security/change-password" routerLinkActive="active">Change-Password</a></a>
-    <a *ngIf="!isLogged"><a mat-flat-button color="primary" routerLink="/store/register" routerLinkActive="active">Register</a></a>
-    <a mat-flat-button routerLink="/admin">Admin</a>
+    <a *ngIf="!isLogged"><a mat-flat-button routerLink="/store/register" routerLinkActive="active">Register</a></a>
+    <a *ngIf="isLogged"><a mat-flat-button routerLink="/admin">Admin</a></a>
     <a *ngIf="!isLogged"><a mat-flat-button  routerLink="/security/login" routerLinkActive="active">Login</a></a>
     <a *ngIf="isLogged"><a mat-flat-button (click)="RemoveConfirmation('1')" routerLinkActive="active">Logout</a></a>
   </div>

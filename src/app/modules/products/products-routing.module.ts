@@ -15,7 +15,7 @@ const routes: Routes = [
   {
     path: 'product-creation',
     component: ProductCreationComponent,
-    canActivate: [AdminAuthenticatedGuard]
+  //  canActivate: [AdminAuthenticatedGuard]
   },
   {
     path: 'product-edition/:id',

@@ -4,6 +4,7 @@ import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTr
 import { Observable } from 'rxjs';
 import { SecurityService } from '../core/services/security/security.service';
 
+
 @Injectable({
   providedIn: 'root'
 })

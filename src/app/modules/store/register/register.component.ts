@@ -4,6 +4,8 @@ import { Router } from '@angular/router';
 import { StoreService } from 'src/app/core/services/store/store.service';
 import {StoreModel } from '../../../models/store/store.model';
 import MD5 from 'crypto-js/md5';
+import { AuthService} from 'src/app/core/services/auth/auth.service';
+
 
 declare const showMessage: any;
 
@@ -21,11 +23,20 @@ export class RegisterComponent implements OnInit {
     private fb: FormBuilder,
     private service: StoreService,
     private router:Router,
+    private authService:AuthService,
      ) { }
 
   ngOnInit(): void {
     this.FormBuilder();
   }
+
+  register(email:string, password:string){
+         this.authService.createUser(email, password )
+        .then(() => {
+          this.router.navigate(['/security/login'])
+        })
+    }
+
 
   FormBuilder(){
     this.fgValidator = this.fb.group({
@@ -50,8 +61,12 @@ export class RegisterComponent implements OnInit {
       console.log(model);
      this.service.StoreRegistering(model).subscribe(
        data => {
-        showMessage('register succesfully. you can find your password in your email inbox.')
-        this.router.navigate(['/security/login'])
+         console.log(data)
+        //showMessage('register succesfully. you can find your password in your email inbox.')
+        const value = this.fgValidator.value;
+        this.register(value.email, value.password)
+          console.log("registro exitoso")
+          console.log(value)
       },
        error => {
          console.log(error.error.errors[0].msg)

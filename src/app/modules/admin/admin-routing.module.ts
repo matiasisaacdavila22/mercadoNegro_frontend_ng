@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ProductFormComponent } from './components/product-form/product-form.component';
 import { SiderComponent } from './components/sider/sider.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 
 
 const routes: Routes = [
@@ -14,6 +15,10 @@ const routes: Routes = [
     component:ProductFormComponent
   },
   {
+    path: '',
+    component:DashboardComponent
+  },
+  {
     path: 'products',
     loadChildren: () => import('../products/products.module')
      .then(m => m.ProductsModule),
@@ -22,16 +27,6 @@ const routes: Routes = [
     path: 'parameters',
     loadChildren: () => import('../parameters/parameters.module')
      .then(m => m.ParametersModule),
-   },
-   {
-    path: 'security',
-    loadChildren: () => import('../security/security.module')
-     .then(m => m.SecurityModule),
-   },
-   {
-    path: 'store',
-    loadChildren: () => import('../store/store.module')
-     .then(m => m.StoreModule),
    },
    {
     path: 'order',

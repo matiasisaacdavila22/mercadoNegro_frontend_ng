@@ -10,12 +10,16 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { ProductImagesComponent } from './product-images/product-images.component';
 import { MaterialModule } from '../material/material.module';
 
+
+
+
 @NgModule({
   declarations: [
     ProductCreationComponent,
     ProductEditionComponent,
     ProductListComponent,
     ProductImagesComponent
+
   ],
   imports: [
     CommonModule,
@@ -24,6 +28,9 @@ import { MaterialModule } from '../material/material.module';
     ReactiveFormsModule,
     FormsModule,
     MaterialModule
+
+
+
   ]
 })
 export class ProductsModule { }

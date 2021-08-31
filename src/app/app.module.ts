@@ -12,6 +12,9 @@ import { SharedModule } from './public/shared/shared.module';
 
 import { AngularFireModule } from 'angularfire2';
 import { environment } from 'src/environments/environment';
+import { AngularFireAuthModule } from 'angularfire2/auth';
+import { AngularFirestoreModule } from 'angularfire2/firestore';
+import { AngularFireStorage } from 'angularfire2/storage';
 
 
 
@@ -30,9 +33,10 @@ import { environment } from 'src/environments/environment';
     BrowserAnimationsModule,
     MaterialModule,
     AngularFireModule.initializeApp(environment.firebase),
-
+    AngularFireAuthModule,
+    AngularFirestoreModule
    ],
-  providers: [],
+  providers: [AngularFireStorage],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

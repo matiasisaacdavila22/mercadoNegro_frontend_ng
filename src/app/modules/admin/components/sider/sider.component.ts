@@ -7,6 +7,7 @@ import { Router } from '@angular/router';
 import { SecurityService } from 'src/app/core/services/security/security.service';
 import { Route } from '@angular/compiler/src/core';
 import { CartService } from 'src/app/core/services/cart/cart.service';
+import { AuthService } from 'src/app/core/services/auth/auth.service';
 
 
 declare const closeModal: any;
@@ -36,7 +37,8 @@ export class SiderComponent {
     private breakpointObserver: BreakpointObserver,
     private service: SecurityService,
     private router:Router,
-    private cartService: CartService
+    private cartService: CartService,
+    private authService: AuthService
     ) {
       this.total$ = this.cartService.cart$
       .pipe(
@@ -70,6 +72,13 @@ export class SiderComponent {
 
        }
 
+  }
+
+  logOut(){
+    this.authService.logOut()
+    .then(() => {
+      this.router.navigate(['/home'])
+    })
   }
 
 
