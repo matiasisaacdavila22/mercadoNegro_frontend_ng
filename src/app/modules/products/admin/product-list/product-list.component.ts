@@ -55,6 +55,29 @@ export class ProductListComponent implements OnInit {
     showRemoveConfirmationWindows();
   }
 
+  stopPrduct(id:String){
+    this.service.editState(id,0).subscribe(
+      data => {
+        this.fillRecords();
+      },
+      error => {
+        console.log('error')
+      }
+    );
+
+  }
+
+  activePrduct(id:String){
+    this.service.editState(id,1).subscribe(
+      data => {
+        this.fillRecords();
+      },
+      error => {
+        console.log('error')
+      }
+    );
+  }
+
   RemoveRecord(){
     closeModal('removeConfirmationModal')
     if(this.idRemove){

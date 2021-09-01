@@ -77,7 +77,7 @@ export class SiderComponent {
   logOut(){
     this.authService.logOut()
     .then(() => {
-      this.router.navigate(['/home'])
+      this.router.navigate([`/security/logout`]);
     })
   }
 

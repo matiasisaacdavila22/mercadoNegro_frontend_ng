@@ -40,9 +40,9 @@
         mat-raised-button color="accent"><i class="material-icons right">edit</i>Edit</a>
       </td>
     <td>
-      <div *ngIf="r.condition > 0; else stop"><button (click)="RemoveConfirmation(r.id)" mat-raised-button class="active"><i class="material-icons right">check_circle</i></button>
+      <div *ngIf="r.condition > 0; else stop"><button (click)="stopPrduct(r.id)" mat-raised-button class="active"><i class="material-icons right">check_circle</i></button>
       </div>
-      <ng-template #stop><button (click)="RemoveConfirmation(r.id)" mat-raised-button class="stop"><i class="material-icons right">not_interested</i></button>
+      <ng-template #stop><button (click)="activePrduct(r.id)" mat-raised-button class="stop"><i class="material-icons right">not_interested</i></button>
       </ng-template>
       </td>
     <td><button (click)="RemoveConfirmation(r.id)" mat-raised-button color="warn">

@@ -49,6 +49,14 @@ export class ProductService {
     });
   }
 
+  editState(id:String, status:number):Observable<any>{
+    return this.http.put<any>(`${ServiceConfig.BASE_URL}${this.entity}/${id}/status`, {status},{
+      headers: new HttpHeaders({
+          Authorization: `Bearer ${this.token}`
+      })
+    });
+  }
+
   deleteRecord(recordId:String):Observable<any>{
     console.log('remove brand')
     return this.http.delete(`${ServiceConfig.BASE_URL}${this.entity}/${recordId}`,{
