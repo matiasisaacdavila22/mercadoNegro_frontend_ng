@@ -34,7 +34,8 @@
   <div *ngFor="let i of imagesList" class="col s4 m6">
     <div class="card">
       <div class="card-image">
-        <img src="http://localhost:3000/images/products/{{i.name}}" class="productImage">
+        <!--<img src="http://localhost:3000/images/products/{{i.name}}" class="productImage">-->
+        <img src="{{i.name}}" class="productImage">
         <span class="card-title" class="orden">Orden :{{i.orden}}</span>
       </div>
       <div class="card-content">

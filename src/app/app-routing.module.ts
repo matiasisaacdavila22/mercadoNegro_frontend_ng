@@ -35,9 +35,10 @@ const routes: Routes = [
   },
   {
     path:'admin',
-
+    canActivate: [AuthenticatedGuard],
     loadChildren: () => import('./modules/admin/admin.module')
-    .then(m => m.AdminModule)
+    .then(m => m.AdminModule),
+
   },
 
  /**this must be the last one*/

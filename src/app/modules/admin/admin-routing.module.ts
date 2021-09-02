@@ -5,6 +5,8 @@ import { SiderComponent } from './components/sider/sider.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { StoreComponent } from './components/store/store.component';
 import { UserModule } from './components/user/user.module';
+import { AdminAuthenticatedGuard } from 'src/app/guards/admin-authenticated.guard';
+import { ManagerAuthenticatedGuard } from 'src/app/guards/manager-authenticated.guard';
 
 
 const routes: Routes = [
@@ -14,15 +16,18 @@ const routes: Routes = [
     children: [
   {
     path: 'create',
-    component:ProductFormComponent
+    component:ProductFormComponent,
+    canActivate: [AdminAuthenticatedGuard]
   },
   {
     path: '',
-    component:DashboardComponent
+    component:DashboardComponent,
+    canActivate: [AdminAuthenticatedGuard]
   },
   {
     path: 'store',
-    component:StoreComponent
+    component:StoreComponent,
+    canActivate: [AdminAuthenticatedGuard]
   },
   {
     path: 'products',

@@ -18,7 +18,7 @@ export class AuthenticatedGuard implements CanActivate {
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-      if(this.secService.sessionExist() || this.authService.hasUser){
+      if(this.secService.sessionExist()){
         return true;
       }
       this.router.navigate(["/security/login"]);

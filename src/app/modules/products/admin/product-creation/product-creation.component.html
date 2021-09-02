@@ -82,7 +82,7 @@
       <div class="row">
         <div class="col-xs">
           <img *ngIf="(image$ | async) as image" [src]="image" alt="">
-          <input type="file" (change)="uploadFile($event)">
+          <input type="file" formControlName="photo" (change)="uploadFile($event)">
        </div>
       </div>
       <div class="row">
@@ -116,7 +116,7 @@
       </div>
     </mat-card-content>
     <mat-card-actions>
-      <button mat-raised-button type="button" (click)="SaveNewRecordFn()" name="action" color="accent">Submit
+      <button mat-raised-button type="button" (click)="saveFile()" name="action" color="accent">Submit
         <i class="material-icons right">send</i>
       </button>
       <a routerLink="/admin/products/product-list" mat-raised-button color="warn"><i

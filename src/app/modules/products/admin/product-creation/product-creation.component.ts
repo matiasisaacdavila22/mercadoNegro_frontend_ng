@@ -29,6 +29,8 @@ export class ProductCreationComponent implements OnInit {
   categoryList!: CategoryModel[];
   brandList!: BrandModel[];
   image$!:Observable<any>;
+  file!:string;
+  name!:string;
 
   constructor(
     private fb: FormBuilder,
@@ -85,17 +87,24 @@ export class ProductCreationComponent implements OnInit {
       price: ['',[Validators.required ]],
       cost: ['',[Validators.required]],
       stock: ['',[Validators.required]],
-      photo: ['',[Validators.maxLength(80)]],
+      photo: ['',[Validators.required]]
     })
   }
 
   uploadFile(event:any) {
     console.log('un evento se a lanzado con la imge')
-    const file = event.target.files[0];
-    const name = 'image.png';
-    const fileRef = this.afStorage.ref(name);
-    const task = this.afStorage.upload(name, file);
+    this.file = event.target.files[0];
+    this.name =   `${Date.now()}.product`;
 
+  }
+
+  saveFile(){
+    if(this.fgValidator.invalid){
+      console.log(this.fgv.name.errors)
+     // showMessage('Invalid form');
+    }else{
+    const fileRef = this.afStorage.ref(this.name);
+    const task = this.afStorage.upload(this.name, this.file);
     task.snapshotChanges()
     .pipe(
       finalize(() => {
@@ -103,25 +112,40 @@ export class ProductCreationComponent implements OnInit {
        this.image$.subscribe(url => {
           console.log(url);
             this.fgv.photo.setValue(url);
+            console.log('casa de papel')
+            this.SaveNewRecordFn();
 
       });
       })
     )
-    .subscribe();
+    .subscribe(
+      data => {
+        this.router.navigate(['admin/products/product-list']);
+      },
+      error => {
+        console.log(error)
+      }
+    );
   }
+  }
+
+
+
 
 
  SaveNewRecordFn(){
     if(this.fgValidator.invalid){
       console.log(this.fgv.name.errors)
-      showMessage('Invalid form');
+     // showMessage('Invalid form');
     }else{
       let model = this.getStoreData();
-      console.log(model);
+      //console.log(model);
      this.service.saveNewRecord(model).subscribe(
        data => {
-        showMessage('register Category succesfully')
-        this.router.navigate(['/products/product-list'])
+       // showMessage('register Category succesfully')
+       // this.router.navigate(['/products/product-list'])
+      // this.saveFile();
+
       },
        error => {
          showMessage('error saving.:')
