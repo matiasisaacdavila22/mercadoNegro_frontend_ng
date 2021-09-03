@@ -22,7 +22,16 @@
       "dom"
     ],
     "paths": {
-      "@angular/*": ["./node_modules/@angular/*"]
+      "@angular/*": ["./node_modules/@angular/*"],
+      "@core/*":["src/app/core/*"],
+      "@guards/*":["src/app/guards/*"],
+      "@models/*":["src/app/models/*"],
+      "@public/*":["src/app/public/*"],
+      "@config/*":["src/app/config/*"],
+      "@modules/*":["src/app/modules/*"],
+      "@material/*":["src/app/modules/material/*"],
+      "@admin/*":["src/app/modules/admin/*"]
+
     }
   },
   "angularCompilerOptions": {

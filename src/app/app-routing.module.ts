@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes, PreloadAllModules } from '@angular/router';
-import { AdminAuthenticatedGuard } from './guards/admin-authenticated.guard';
-import { AuthenticatedGuard } from './guards/authenticated.guard';
-import { LayoutComponent } from './public/master-page/layout/layout.component';
+import { AdminAuthenticatedGuard } from '@guards/admin-authenticated.guard';
+import { AuthenticatedGuard } from '@guards/authenticated.guard';
+import { LayoutComponent } from '@public/master-page/layout/layout.component';
 
 const routes: Routes = [
 

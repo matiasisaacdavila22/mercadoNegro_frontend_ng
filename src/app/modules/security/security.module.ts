@@ -11,7 +11,7 @@ import { UserListComponent } from './user-list/user-list.component';
 import { UserEditionComponent } from './user-edition/user-edition.component';
 import { UserCreationComponent } from './user-creation/user-creation.component';
 import {NgxPaginationModule} from 'ngx-pagination';
-import { MaterialModule } from '../material/material.module';
+import { MaterialModule } from '@material/material.module';
 
 @NgModule({
   declarations: [

@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { UserStoreModel } from 'src/app/models/store/userStore.model';
-import { UserService } from 'src/app/core/services/user/user.service';
-import {SecurityService} from 'src/app/core/services/security/security.service';
+import { UserStoreModel } from '@models/store/userStore.model';
+import { UserService } from '@core/services/user/user.service';
+import {SecurityService} from '@core/services/security/security.service';
 
 
 declare const closeModal: any;

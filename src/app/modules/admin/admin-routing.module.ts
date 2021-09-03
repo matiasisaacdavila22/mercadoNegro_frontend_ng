@@ -1,12 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ProductFormComponent } from './components/product-form/product-form.component';
 import { SiderComponent } from './components/sider/sider.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { StoreComponent } from './components/store/store.component';
 import { UserModule } from './components/user/user.module';
-import { AdminAuthenticatedGuard } from 'src/app/guards/admin-authenticated.guard';
-import { ManagerAuthenticatedGuard } from 'src/app/guards/manager-authenticated.guard';
+import { AdminAuthenticatedGuard } from '@guards/admin-authenticated.guard';
+import { ManagerAuthenticatedGuard } from '@guards/manager-authenticated.guard';
 
 
 const routes: Routes = [
@@ -14,11 +13,6 @@ const routes: Routes = [
     path: '',
     component:SiderComponent,
     children: [
-  {
-    path: 'create',
-    component:ProductFormComponent,
-    canActivate: [AdminAuthenticatedGuard]
-  },
   {
     path: '',
     component:DashboardComponent,
@@ -31,7 +25,7 @@ const routes: Routes = [
   },
   {
     path: 'products',
-    loadChildren: () => import('../products/products.module')
+    loadChildren: () => import('@admin/components/products/products.module')
      .then(m => m.ProductsModule),
    },
    {
@@ -41,13 +35,13 @@ const routes: Routes = [
    },
    {
     path: 'parameters',
-    loadChildren: () => import('../parameters/parameters.module')
+    loadChildren: () => import('./components/parameters/parameters.module')
      .then(m => m.ParametersModule),
    },
    {
     path: 'order',
-    loadChildren: () => import('../order/order.module')
-     .then(m => m.OrderModule),
+    loadChildren: () => import('./components/orders/orders.module')
+     .then(m => m.OrdersModule),
    }
 
    ]

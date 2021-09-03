@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { UserStoreModel } from 'src/app/models/store/userStore.model';
-import { UserService } from 'src/app/core/services/user/user.service';
+import { UserStoreModel } from '@models/store/userStore.model';
+import { UserService } from '@core/services/user/user.service';
 
 declare const showMessage: any;
 
