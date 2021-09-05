@@ -1,9 +1,11 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
 import { ServiceConfig } from 'src/app/config/service-comfig';
 import { ProductModel } from 'src/app/models/products/product.model';
 import { SecurityService } from '../security/security.service';
+import { Observable, throwError } from 'rxjs';
+import { map, catchError, retry } from 'rxjs/operators';
+//import * as Sentry from '@sentry/browser';
 
 @Injectable({
   providedIn: 'root'
@@ -22,7 +24,11 @@ export class ProductService {
         headers: new HttpHeaders({
             Authorization: `Bearer ${this.token}`
         })
-      });
+      })
+      .pipe(
+        retry(1),
+        catchError(this.handleError),
+      );
   }
 
   getRecordById(id:String):Observable<ProductModel>{
@@ -63,7 +69,31 @@ export class ProductService {
       headers: new HttpHeaders({
           Authorization: `Bearer ${this.token}`
       })
-    });
+    })
+    .pipe(
+      retry(2),
+      catchError(this.handleError),
+    );
+  }
+
+
+  getRandomUsers(): Observable<ProductModel[]> {
+    return this.http.get('https://randomuser.me/api/?results=2')
+    .pipe(
+      retry(2),
+      catchError(this.handleError),
+      map((response: any) => response.results as ProductModel[]),
+    );
+  }
+
+  getFile() {
+    return this.http.get('assets/files/test.txt', {responseType: 'text'});
+  }
+
+  private handleError(error: HttpErrorResponse) {
+    console.log(error);
+    //Sentry.captureException(error);
+    return throwError('ups algo salio mal');
   }
 }
 

@@ -1,4 +1,3 @@
-<div *ngIf="!isLogged">
   <div class="product-grid">
     <div *ngFor="let i of storeList" >
       <mat-card>
@@ -24,9 +23,12 @@
       </mat-card>
     </div>
   </div>
-  </div>
+
+<!--
+  <div *ngIf="!isLogged"></div>
 
   <div *ngIf="isLogged">
     Mostrando contenido
     <h2>estas logueado wili</h2>
   </div>
+-->

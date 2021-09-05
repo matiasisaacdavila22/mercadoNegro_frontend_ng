@@ -4,15 +4,15 @@
     <div class="row between-xs middle-xs header-row">
     <nav>
         <a routerLink="#" class="brand-logo">MercadoNegro Store</a>
-        <a *ngIf="isLogged"><a mat-flat-button matBadge="78" matBadgeColor="primary" routerLink="/products/product-list" routerLinkActive="active">Productos</a></a>
-        <a *ngIf="isLogged"><a mat-flat-button matBadge="46" matBadgeColor="primary" routerLink="parameters/category-list" routerLinkActive="active">Categorias</a></a>
+        <a><a mat-flat-button matBadge="78" matBadgeColor="primary" routerLink="/home/store-list" routerLinkActive="active">Tiendas</a></a>
+        <!--<a *ngIf="isLogged"><a mat-flat-button matBadge="46" matBadgeColor="primary" routerLink="parameters/category-list" routerLinkActive="active">Categorias</a></a>
         <a *ngIf="isLogged"><a mat-flat-button matBadge="46" matBadgeColor="primary" routerLink="parameters/brand-list" routerLinkActive="active">Marcas</a></a>
-        <a *ngIf="isLogged"><a mat-flat-button matBadge="4" matBadgeColor="primary" routerLink="/security/user-list" routerLinkActive="active">Users</a></a>
+        <a *ngIf="isLogged"><a mat-flat-button matBadge="4" matBadgeColor="primary" routerLink="/security/user-list" routerLinkActive="active">Users</a></a>-->
     </nav>
     <a *ngIf="isLogged"><a mat-flat-button routerLink="/security/change-password" routerLinkActive="active">Change-Password</a></a>
-    <a *ngIf="!isLogged"><a mat-flat-button routerLink="/store/register" routerLinkActive="active">Register</a></a>
+    <a *ngIf="!isLogged"><a mat-flat-button routerLink="/home/register" routerLinkActive="active">Register</a></a>
     <a *ngIf="isLogged"><a mat-flat-button routerLink="/admin">Admin</a></a>
-    <a *ngIf="!isLogged"><a mat-flat-button  routerLink="/security/login" routerLinkActive="active">Login</a></a>
+    <a *ngIf="!isLogged"><a mat-flat-button  routerLink="/home/login" routerLinkActive="active">Login</a></a>
     <a *ngIf="isLogged"><a mat-flat-button (click)="RemoveConfirmation('1')" routerLinkActive="active">Logout</a></a>
   </div>
   </mat-toolbar-row>

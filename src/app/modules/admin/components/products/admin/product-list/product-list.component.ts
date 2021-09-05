@@ -4,6 +4,7 @@ import { ProductModel } from 'src/app/models/products/product.model';
 import { ProductService } from 'src/app/core/services/products/product.service';
 import { CartService } from 'src/app/core/services/cart/cart.service'
 
+
 declare const closeModal: any;
 declare const showMessage: any;
 declare const showRemoveConfirmationWindows: any;
@@ -56,7 +57,8 @@ export class ProductListComponent implements OnInit {
   }
 
   stopPrduct(id:String){
-    this.service.editState(id,0).subscribe(
+    this.service.editState(id,0)
+    .subscribe(
       data => {
         this.fillRecords();
       },

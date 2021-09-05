@@ -14,15 +14,6 @@ const routes: Routes = [
     path: 'store-edit/:id',
     component: StoreDetailComponent
   },
-  {
-    path: 'store-list',
-    component: StoreListComponent
-  },
-  {
-    path: 'register',
-    component: RegisterComponent,
-
-  }
 ];
 
 @NgModule({
