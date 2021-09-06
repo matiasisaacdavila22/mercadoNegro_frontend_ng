@@ -8,7 +8,7 @@ import { ProductListComponent } from './admin/product-list/product-list.componen
 import {NgxPaginationModule} from 'ngx-pagination';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { ProductImagesComponent } from './product-images/product-images.component';
-import { MaterialModule } from 'src/app/modules/material/material.module';
+import { MaterialModule } from '@material/material.module';
 
 
 
