@@ -11,6 +11,7 @@
         <div class="btn">
           <span>Image</span>
           <input type="file"  formControlName="name" (change)="uploadFile($event)">
+          <img [src]="url">
         </div>
         <div class="file-path-wrapper">
           <input class="file-path validate" type="text">
@@ -31,29 +32,35 @@
 </form>
 </div>
 <div class="row">
-  <div *ngFor="let i of imagesList" class="col s4 m6">
-    <div class="card">
-      <div class="card-image">
-        <!--<img src="http://localhost:3000/images/products/{{i.name}}" class="productImage">-->
-        <img src="{{i.name}}" class="productImage">
-        <span class="card-title" class="orden">Orden :{{i.orden}}</span>
-      </div>
-      <div class="card-content">
-      </div>
-      <div class="card-action">
-        <button mat-raised-button color="primary" (click)="RemoveConfirmation(i.id)" name="action">Remove
-          <i class="material-icons right">delete</i>
-        </button>
-      </div>
-    </div>
+  <div *ngFor="let i of imagesList" name="img-container" class="img-container">
+    <mat-card class="example-card">
+      <mat-card-header>
+        <div mat-card-avatar class="example-header-image"></div>
+        <mat-card-title>Orden :{{i.orden}}</mat-card-title>
+        <mat-card-subtitle> </mat-card-subtitle>
+      </mat-card-header>
+      <img mat-card-image src="{{i.name}}" alt="Photo of a Shiba Inu">
+      <mat-card-content>
+        <p>
+        </p>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-button (click)="RemoveConfirmation(i.id)">Remove</button>
+        <button mat-button>SHARE</button>
+      </mat-card-actions>
+    </mat-card>
   </div>
 </div>
-<div id="removeConfirmationModal" class="modal">
+
+
+
+
+<!-- <div id="removeConfirmationModal" class="modal">
   <div class="modal-content">
     <h4>Remove Confirmation</h4>
     <p>Are you sure remove this Image?</p>
   </div>
- <!-- <div class="modal-footer">
+ <div class="modal-footer">
     <button (click)="RemoveRecord()" mat-raised-button color="primary">Confirmar
       <i class="material-icons right">delete</i></button>
     <a class="modal-close waves-effect waves-green btn-flat">Close</a>

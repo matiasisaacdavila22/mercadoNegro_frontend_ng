@@ -28,6 +28,7 @@ export class ProductImagesComponent implements OnInit {
   image$!:Observable<any>;
   file!:string;
   name!:string;
+  url!:any;
 
   constructor(private fb: FormBuilder,
     private route: ActivatedRoute,
@@ -123,6 +124,11 @@ export class ProductImagesComponent implements OnInit {
     this.file = event.target.files[0];
     this.name =   `${Date.now()}.product`;
 
+    let reader = new FileReader();
+    reader.onload = (event: ProgressEvent ) => {
+      this.url = (<FileReader>event.target).result;
+    }
+    reader.readAsDataURL(event.target.files[0]);
   }
 
   get fgv(){
