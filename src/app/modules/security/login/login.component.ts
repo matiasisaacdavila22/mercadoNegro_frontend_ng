@@ -34,7 +34,8 @@ export class LoginComponent implements OnInit {
     if(this.fgValidator.valid){
     const value = this.fgValidator.value;
     this.authService.login(value.email, value.password)
-   .then(() => {
+   .then((data) => {
+    console.log(data)
     this.router.navigate(['/admin/'])
    })
    .catch( () => {

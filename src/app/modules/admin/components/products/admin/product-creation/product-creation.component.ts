@@ -92,7 +92,6 @@ export class ProductCreationComponent implements OnInit {
   }
 
   uploadFile(event:any) {
-    console.log('un evento se a lanzado con la imge')
     this.file = event.target.files[0];
     this.name =   `${Date.now()}.product`;
 
@@ -112,7 +111,6 @@ export class ProductCreationComponent implements OnInit {
        this.image$.subscribe(url => {
           console.log(url);
             this.fgv.photo.setValue(url);
-            console.log('casa de papel')
             this.SaveNewRecordFn();
 
       });
