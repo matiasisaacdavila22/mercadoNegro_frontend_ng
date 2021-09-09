@@ -1,8 +1,4 @@
-<legend>
-  <div class="brand-logo">
-    <h5>Product Images</h5>
-  </div>
-</legend>
+<mat-card class="card-simple">
 <div class="row">
 <form [formGroup]="fgValidator">
   <div class="row">
@@ -31,22 +27,22 @@
   </div>
 </form>
 </div>
-<div class="row">
-  <div *ngFor="let i of imagesList" name="img-container" class="img-container">
-    <mat-card class="example-card">
+</mat-card>
+<div class="product-grid">
+  <div *ngFor="let i of imagesList">
+    <mat-card>
       <mat-card-header>
-        <div mat-card-avatar class="example-header-image"></div>
         <mat-card-title>Orden :{{i.orden}}</mat-card-title>
         <mat-card-subtitle> </mat-card-subtitle>
       </mat-card-header>
-      <img mat-card-image src="{{i.name}}" alt="Photo of a Shiba Inu">
+      <div class="crop-image">
+      <img src="{{i.name}}" alt="Photo of a Shiba Inu"  class="productImage">
+    </div>
       <mat-card-content>
-        <p>
-        </p>
       </mat-card-content>
       <mat-card-actions>
-        <button mat-button (click)="RemoveConfirmation(i.id)">Remove</button>
-        <button mat-button>SHARE</button>
+        <button  mat-raised-button color="warn"  (click)="RemoveConfirmation(i.id)" name="action">Remove <i class="material-icons right">delete</i></button>
+
       </mat-card-actions>
     </mat-card>
   </div>
